@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">QuizMasters</string>
-    <string name="name">Name: </string>
+    <string name="username">Username: </string>
+    <string name="password">Password: </string>
+    <string name="hint_username">Write your username here.</string>
+    <string name="hint_password">Write your password.</string>
+    <string name="repassword">Retype password:</string>
+    <string name="hint_repass">Retype your password.</string>
+    <string name="back">BACK</string>
+    <string name="register">REGISTER</string>
 </resources>
