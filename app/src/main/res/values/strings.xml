@@ -12,4 +12,11 @@
     <string name="creator_teardrop_text">A CECS 453 project</string>
     <string name="hint_age">Enter your age.</string>
     <string name="age">Age:</string>
+    <string name="choose_difficulty_title">Choose Difficulty</string>
+    <string name="diff_level_1">Level 1</string>
+    <string name="diff_level_2">Level 2</string>
+    <string name="diff_level_3">Level 3</string>
+    <string name="take_quiz_btn_text">Take quiz</string>
+    <string name="default_quiz_name">Quiz Name</string>
+    <string name="submit_quiz_text">Submit Quiz</string>
 </resources>
