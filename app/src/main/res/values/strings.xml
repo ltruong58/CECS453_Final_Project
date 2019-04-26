@@ -10,4 +10,6 @@
     <string name="register">REGISTER</string>
     <string name="logo_cd">The app logo.</string>
     <string name="creator_teardrop_text">A CECS 453 project</string>
+    <string name="hint_age">Enter your age.</string>
+    <string name="age">Age:</string>
 </resources>
