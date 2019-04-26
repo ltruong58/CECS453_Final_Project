@@ -9,4 +9,5 @@
     <string name="back">BACK</string>
     <string name="register">REGISTER</string>
     <string name="logo_cd">The app logo.</string>
+    <string name="creator_teardrop_text">A CECS 453 project</string>
 </resources>
