@@ -1,5 +1,6 @@
 package com.cecs453_final_project.quizmasters;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -11,10 +12,11 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 public class QuizActivity extends AppCompatActivity {
+	public static String CHOSEN_ANSWERS = "Come get your quiz answers here!";
 	private int difficulty;
 
 	private RecyclerView rc;
-	private RecyclerView.Adapter mAdapter;
+	private activeQuizAdapter mAdapter;
 	private RecyclerView.LayoutManager layoutManager;
 
 	private Button mSubmit;
@@ -45,11 +47,19 @@ public class QuizActivity extends AppCompatActivity {
 		mSubmit.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				//TODO: submit the items from questions somehow
-
 				temp_SubmitToast();
+
+//				TODO: uncomment this once the result activity is set up
+//				Intent resultIntent = new Intent(/*QuizActivity.this, QuizResultActivity.class*/);
+//				resultIntent.putExtra(CHOSEN_ANSWERS, getAdapterChosenAnswers());
+//				startActivity(resultIntent);
+//				finish();
 			}
 		});
+	}
+
+	String[] getAdapterChosenAnswers() {
+		return mAdapter.getChosenAnswers();
 	}
 
 	void temp_SubmitToast() {
