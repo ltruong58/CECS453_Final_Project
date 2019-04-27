@@ -3,6 +3,6 @@
    <font
     android:fontStyle = "normal"
     android:fontWeight = "1200"
-       android:font = "@font/CuteFontRegular"/>
+       android:font = "@font/cutefontregular"/>
 
 </font-family>

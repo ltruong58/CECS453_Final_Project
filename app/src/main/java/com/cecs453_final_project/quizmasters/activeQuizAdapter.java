@@ -26,7 +26,7 @@ public class activeQuizAdapter extends RecyclerView.Adapter<activeQuizAdapter.aQ
 			selected = -1;
 		}
 	}
-	private ArrayList<Question> mQuestions
+	private ArrayList<Question> mQuestions;
 	public activeQuizAdapter(ArrayList<Question> questions) {
 		mQuestions = questions;
 	}

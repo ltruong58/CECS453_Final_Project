@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    android:background="#F30B1A24">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="0sp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20sp"
+            android:layout_marginBottom="20sp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/logo_cd"
+                app:layout_constraintBottom_toTopOf="@+id/splash_app_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@mipmap/quizmasters_logo" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation = "vertical">
+                <TextView
+                    android:text = "@string/app_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="35sp"
+                    android:layout_marginStart="10sp"
+                    android:textColor="#FFEB3B"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10sp"
+                    android:text="@string/creator_teardrop_text"
+                    android:textColor="#FFEB3B"/>
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:orientation="horizontal">
+            <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+                android:layout_gravity="center">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2sp"
+                android:layout_marginBottom="2sp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2sp"
+                    android:fontFamily="@font/cutefont"
+                    android:text="@string/username"
+                    android:textSize="30sp"
+                    android:textColor="#FFEB3B" />
+
+                <EditText
+                    android:id="@+id/uname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2sp"
+                    android:textSize="30sp"
+                    android:fontFamily="@font/cutefont"
+                    android:hint="@string/hint_username"
+                    android:autofillHints="@string/hint_username"
+                    android:textColorHint="#f2ed6f"
+                    android:inputType="textPassword"
+                    android:textColor="#FFEB3B"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2sp"
+                android:layout_marginBottom="2sp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="2sp"
+                    android:fontFamily="@font/cutefont"
+                    android:textSize="30sp"
+                    android:text="@string/password"
+                    android:textColor="#FFEB3B" />
+
+                <EditText
+                    android:id="@+id/password"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2sp"
+                    android:textSize="30sp"
+                    android:autofillHints="@string/hint_password"
+                    android:hint="@string/hint_password"
+                    android:fontFamily="@font/cutefont"
+                    android:textColorHint="#f2ed6f"
+                    android:inputType="textPassword" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25sp"
+                android:orientation="vertical"
+                android:gravity="center">
+
+                <Button
+                    android:id="@+id/new_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/new_user"
+                    android:background="@drawable/button_back"
+                    android:fontFamily="@font/cutefont"
+                    android:textColor="#FFEB3B"
+                    android:textSize="40sp"
+                    android:layout_marginBottom="30sp"
+                    android:paddingLeft="30sp"
+                    android:paddingRight="30sp"/>
+
+                <Button
+                    android:id="@+id/adm_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10sp"
+                    android:fontFamily="@font/cutefont"
+                    android:layout_marginBottom="30sp"
+                    android:background="@drawable/button_back"
+                    android:text="@string/b_admin"
+                    android:textColor="#FFEB3B"
+                    android:textSize="40sp"
+                    android:paddingLeft="30sp"
+                    android:paddingRight="30sp"/>
+
+                <Button
+                    android:id="@+id/u_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/cutefont"
+                    android:background="@drawable/button_back"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/u_button"
+                    android:textColor="#FFEB3B"
+                    android:textSize="40sp"
+                    android:paddingLeft="30sp"
+                    android:paddingRight="30sp"/>
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
