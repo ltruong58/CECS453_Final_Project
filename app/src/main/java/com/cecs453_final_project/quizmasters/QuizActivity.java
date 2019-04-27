@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class QuizActivity extends AppCompatActivity {
 	private int difficulty;
 
@@ -30,13 +32,13 @@ public class QuizActivity extends AppCompatActivity {
 		}
 
 		// get the questions
-		ArrayList<Question> questions = randomFiveQuestions(difficulty);
+		ArrayList<Question> questions = (new DBHelper(this)).randomFiveQuestions(difficulty);
 
 		rc = (RecyclerView) findViewById(R.id.active_quiz_recycler_view);
 		layoutManager = new LinearLayoutManager(this);
 		rc.setLayoutManager(layoutManager);
 
-		mAdapter = new activeQuizAdapter(questions);
+		mAdapter = new activeQuizAdapter(this, questions);
 		rc.setAdapter(mAdapter);
 
 		mSubmit = (Button) findViewById(R.id.submit_btn);

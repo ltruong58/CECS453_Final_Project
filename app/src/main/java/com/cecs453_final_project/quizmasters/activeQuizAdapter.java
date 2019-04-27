@@ -1,5 +1,6 @@
 package com.cecs453_final_project.quizmasters;
 
+import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,40 +12,45 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class activeQuizAdapter extends RecyclerView.Adapter<activeQuizAdapter.aQ_ViewHolder> {
-	public static class aQ_ViewHolder extends RecyclerView.ViewHolder {
-		public TextView question_;
-		public RadioButton a1, a2, a3, a4;
-		public int selected;
-		public aQ_ViewHolder(View v) {
+	class aQ_ViewHolder extends RecyclerView.ViewHolder {
+		TextView question_;
+		RadioButton a1, a2, a3, a4;
+		int selected;
+
+		final activeQuizAdapter mAdapter;
+
+		public aQ_ViewHolder(View v, activeQuizAdapter adapter) {
 			super(v);
+			this.mAdapter = adapter;
+
 			// TODO: uncomment these after 'R.layout.question_block' is completed
-			question_ = (TextView) v.findViewById(/*R.id.question_name*/);
-			a1 = (RadioButton) v.findViewById(/*R.id.answer_one*/);
-			a2 = (RadioButton) v.findViewById(/*R.id.answer_two*/);
-			a3 = (RadioButton) v.findViewById(/*R.id.answer_three*/);
-			a4 = (RadioButton) v.findViewById(/*R.id.answer_four*/);
+			question_ = (TextView) v.findViewById(R.id.question_name);
+			a1 = (RadioButton) v.findViewById(R.id.answer_one);
+			a2 = (RadioButton) v.findViewById(R.id.answer_two);
+			a3 = (RadioButton) v.findViewById(R.id.answer_three);
+			a4 = (RadioButton) v.findViewById(R.id.answer_four);
 			selected = -1;
 		}
 	}
-	private ArrayList<Question> mQuestions
-	public activeQuizAdapter(ArrayList<Question> questions) {
+	private final ArrayList<Question> mQuestions;
+	private LayoutInflater mInflater;
+	public activeQuizAdapter(Context context, ArrayList<Question> questions) {
+		mInflater = LayoutInflater.from(context);
 		mQuestions = questions;
 	}
 
-	@NonNull
-	@Override
+	@NonNull @Override
 	public activeQuizAdapter.aQ_ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 		// TODO: make 'R.layout.question_block'
-		View v = (View) LayoutInflater.from(parent.getContext()
-				.inflate(R.layout.question_block, parent, false));
-		return new aQ_ViewHolder(v);
+		View v = mInflater.inflate(R.layout.question_block, parent,false);
+		return new aQ_ViewHolder(v, this);
 	}
 
 	@Override
-	public void onBindViewHolder(aQ_ViewHolder holder, int pos) {
+	public void onBindViewHolder(@NonNull aQ_ViewHolder holder, int pos) {
 		Question q = mQuestions.get(pos);
 
-		holder.question_.setText(q.getQuestionName());
+		holder.question_.setText(q.getQuestionText());
 
 		//TODO: change the ids here
 		holder.a1.setText(q.getAnswerById(1));
