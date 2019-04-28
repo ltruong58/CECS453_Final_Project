@@ -89,11 +89,12 @@ public class activeQuizAdapter extends RecyclerView.Adapter<activeQuizAdapter.aQ
 
 		holder.question_.setText(q.getQuestionText());
 
-		//TODO: change how the answers are obtained
-		holder.a1.setText(q.getAnswerById(1));
-		holder.a2.setText(q.getAnswerById(2));
-		holder.a3.setText(q.getAnswerById(3));
-		holder.a4.setText(q.getAnswerById(4));
+		//TODO: double-check this later for correctness
+		ArrayList<String> answers = q.randomizeAnswers();
+		holder.a1.setText(answers.remove(0));
+		holder.a2.setText(answers.remove(0));
+		holder.a3.setText(answers.remove(0));
+		holder.a4.setText(answers.remove(0));
 
 	}
 
@@ -102,7 +103,14 @@ public class activeQuizAdapter extends RecyclerView.Adapter<activeQuizAdapter.aQ
 		return mQuestions.size();
 	}
 
-	public String[] getChosenAnswers() {
+	String[] getChosenAnswers() {
 		return chosenAnswers;
+	}
+
+	boolean isAllQuestionsAnswered() {
+		for(String answer : chosenAnswers) {
+			if (answer == null)	return false;
+		}
+		return true;
 	}
 }

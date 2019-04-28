@@ -152,7 +152,37 @@ public class DBHelper extends SQLiteOpenHelper {
                 new String[] { Integer.toString(id) });
     }
 
+    public ArrayList<Question> getCertainQuestions(int[] questionIDs) {
 
+        String[] q_id_strings = new String[questionIDs.length];
+        for (int i = 0; i < questionIDs.length; i++) {
+            q_id_strings[i] = String.valueOf(questionIDs[i]);
+        }
+
+        ArrayList<Question> array_list = new ArrayList<Question>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res = db.rawQuery("select * from questions where " + QUESTIONS_COLUMN_QUESTIONID + " = ? ", q_id_strings);
+
+        res.moveToFirst();
+        while(res.isAfterLast() == false) {
+            Question q = new Question(
+                    Integer.parseInt(res.getString(res.getColumnIndex(QUESTIONS_COLUMN_QUESTIONID))),
+                    res.getString(res.getColumnIndex(QUESTIONS_COLUMN_QUESTIONTEXT)),
+                    res.getString(res.getColumnIndex(QUESTIONS_COLUMN_CORRECTANSWER)),
+                    res.getString(res.getColumnIndex(QUESTIONS_COLUMN_ALTANSWER1)),
+                    res.getString(res.getColumnIndex(QUESTIONS_COLUMN_ALTANSWER2)),
+                    res.getString(res.getColumnIndex(QUESTIONS_COLUMN_ALTANSWER3)),
+                    2
+            );//Integer.parseInt(res.getString(res.getColumnIndex(QUESTIONS_COLUMN_DIFFICULTY)))
+
+            array_list.add(q);
+
+            res.moveToNext();
+        }
+        res.close();
+
+        return array_list;
+    }
 
     public ArrayList<Question> getAllQuestions() {
         ArrayList<Question> array_list = new ArrayList<Question>();
@@ -177,6 +207,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
             res.moveToNext();
         }
+        res.close();
         return array_list;
     }
 

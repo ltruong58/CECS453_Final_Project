@@ -13,7 +13,10 @@ import java.util.ArrayList;
 
 public class QuizActivity extends AppCompatActivity {
 	public static String CHOSEN_ANSWERS = "Come get your quiz answers here!";
+	public static String QUESTION_ID = "the question id is...";
+
 	private int difficulty;
+	private ArrayList<Question> questions;
 
 	private RecyclerView rc;
 	private activeQuizAdapter mAdapter;
@@ -34,7 +37,7 @@ public class QuizActivity extends AppCompatActivity {
 		}
 
 		// get the questions
-		ArrayList<Question> questions = (new DBHelper(this)).randomFiveQuestions(difficulty);
+		questions = (new DBHelper(this)).randomFiveQuestions(difficulty);
 
 		rc = (RecyclerView) findViewById(R.id.active_quiz_recycler_view);
 		layoutManager = new LinearLayoutManager(this);
@@ -47,19 +50,31 @@ public class QuizActivity extends AppCompatActivity {
 		mSubmit.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				temp_SubmitToast();
+//				temp_SubmitToast();
 
-//				TODO: uncomment this once the result activity is set up
-//				Intent resultIntent = new Intent(/*QuizActivity.this, QuizResultActivity.class*/);
-//				resultIntent.putExtra(CHOSEN_ANSWERS, getAdapterChosenAnswers());
-//				startActivity(resultIntent);
-//				finish();
+				if (isAdapterQuestionsAnswered()) {
+				    Intent resultIntent = new Intent(QuizActivity.this, QuizResultActivity.class);
+				    resultIntent.putExtra(CHOSEN_ANSWERS, getAdapterChosenAnswers());
+				    resultIntent.putExtra(QUESTION_ID, getQuestionIDs());
+				    startActivity(resultIntent);
+				    finish();
+				}
 			}
 		});
 	}
 
 	String[] getAdapterChosenAnswers() {
 		return mAdapter.getChosenAnswers();
+	}
+	boolean isAdapterQuestionsAnswered() {
+		return mAdapter.isAllQuestionsAnswered();
+	}
+	int[] getQuestionIDs() {
+		int[] questionIDs = new int[5];
+		for (int i = 0; i < questions.size(); i++) {
+			questionIDs[i] = questions.get(i).getQuestionID();
+		}
+		return questionIDs;
 	}
 
 	void temp_SubmitToast() {

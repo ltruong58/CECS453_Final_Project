@@ -1,5 +1,11 @@
 package com.cecs453_final_project.quizmasters;
 
+import java.sql.Time;
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Random;
+
 public class Question {
 
     private int questionID;
@@ -74,5 +80,18 @@ public class Question {
 
     public void setQuestionText(String questionText) {
         this.questionText = questionText;
+    }
+
+    public ArrayList<String> randomizeAnswers() {
+        Random r = new Random(Time.from(Instant.now()).getTime());
+        ArrayList<String> answers = new ArrayList<>();
+        answers.add(correctAnswer);
+        answers.add(altAnswer1);
+        answers.add(altAnswer2);
+        answers.add(altAnswer3);
+        Collections.shuffle(answers, r);
+        return answers;
+
+
     }
 }

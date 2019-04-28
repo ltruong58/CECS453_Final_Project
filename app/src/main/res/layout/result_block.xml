@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/question_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingVertical="10dp"
+        android:text="@string/question_ph"
+        tools:text="@string/question_ph" />
+
+    <TextView
+        android:id="@+id/chosen_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/chosen_answer_ph"
+        tools:text="@string/chosen_answer_ph" />
+
+    <TextView
+        android:id="@+id/actual_answer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/actual_answer_ph"
+        tools:text="@string/actual_answer_ph" />
+</LinearLayout>
