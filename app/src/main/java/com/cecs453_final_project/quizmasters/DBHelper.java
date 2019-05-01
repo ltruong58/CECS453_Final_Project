@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -208,6 +209,63 @@ public class DBHelper extends SQLiteOpenHelper {
             res.moveToNext();
         }
         res.close();
+        return array_list;
+    }
+
+    public ArrayList<Question> getFiveQuestions(int difficulty) {
+        ArrayList<Question> array_list = new ArrayList<Question>();
+
+        //hp = new HashMap();
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor res;
+
+        // gets all questions that have the desired difficulty
+
+        if(difficulty==1){
+            res =  db.rawQuery( "select * from questions where difficulty = 1", null );
+        }
+        else if(difficulty==2){
+            res =  db.rawQuery( "select * from questions where difficulty = 2", null );
+        }
+        else{
+            res =  db.rawQuery( "select * from questions where difficulty = 3", null );
+        }
+
+        res.moveToFirst();
+
+        while(res.isAfterLast() == false){
+            Question q = new Question(
+                    Integer.parseInt(res.getString(res.getColumnIndex(QUESTIONS_COLUMN_QUESTIONID))),
+                    res.getString(res.getColumnIndex(QUESTIONS_COLUMN_QUESTIONTEXT)),
+                    res.getString(res.getColumnIndex(QUESTIONS_COLUMN_CORRECTANSWER)),
+                    res.getString(res.getColumnIndex(QUESTIONS_COLUMN_ALTANSWER1)),
+                    res.getString(res.getColumnIndex(QUESTIONS_COLUMN_ALTANSWER2)),
+                    res.getString(res.getColumnIndex(QUESTIONS_COLUMN_ALTANSWER3)),
+                    res.getInt(res.getColumnIndex(QUESTIONS_COLUMN_DIFFICULTY))
+
+            );//Integer.parseInt(res.getString(res.getColumnIndex(QUESTIONS_COLUMN_DIFFICULTY)))
+
+            array_list.add(q);
+
+            res.moveToNext();
+        }
+
+        // randomly deletes question from list until only 5 remain
+
+        int numToBeDeleted = array_list.size() - 5;
+
+        Random random = new Random();
+        int min = 0;
+        int max;
+        int randomNumber;
+
+        for(int i = 0; i < numToBeDeleted; i++){
+            max = array_list.size() -1;
+            randomNumber = random.nextInt(max + 1 - min) + min;
+            array_list.remove(randomNumber);
+        }
+
         return array_list;
     }
 

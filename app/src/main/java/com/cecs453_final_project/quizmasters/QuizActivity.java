@@ -37,7 +37,7 @@ public class QuizActivity extends AppCompatActivity {
 		}
 
 		// get the questions
-		questions = (new DBHelper(this)).randomFiveQuestions(difficulty);
+		questions = (new DBHelper(this)).getFiveQuestions(difficulty);
 
 		rc = (RecyclerView) findViewById(R.id.active_quiz_recycler_view);
 		layoutManager = new LinearLayoutManager(this);
