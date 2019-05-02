@@ -95,7 +95,6 @@
             android:hint="@string/hint_username"
             android:autofillHints="@string/hint_username"
             android:textColorHint="#f2ed6f"
-            android:inputType="textPassword"
             android:textColor="#FFEB3B"
             />
     </LinearLayout>

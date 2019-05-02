@@ -142,6 +142,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/new_user"
                     android:background="@drawable/button_back"
+                    android:onClick="goToRegister"
                     android:fontFamily="@font/cutefont"
                     android:textColor="#FFEB3B"
                     android:textSize="40sp"

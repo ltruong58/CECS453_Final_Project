@@ -40,6 +40,7 @@
                 android:layout_height="wrap_content"
                 android:autofillHints="@string/hint_username"
                 android:fontFamily="@font/cutefont"
+                android:id = "@+id/username"
                 android:hint="@string/hint_username"
                 android:inputType="text"
                 android:textColorHint="#f2ed6f"
@@ -67,6 +68,7 @@
                 android:autofillHints="@string/hint_password"
                 android:fontFamily="@font/cutefont"
                 android:hint="@string/hint_password"
+                android:id = "@+id/pass"
                 android:inputType="textPassword"
                 android:textColorHint="#f2ed6f"
                 android:textSize="25sp" />
@@ -91,6 +93,7 @@
                 android:autofillHints="@string/hint_repass"
                 android:fontFamily="@font/cutefont"
                 android:hint="@string/hint_repass"
+                android:id = "@+id/repass"
                 android:inputType="textPassword"
                 android:textColorHint="#f2ed6f"
                 android:textSize="25sp" />
@@ -113,13 +116,14 @@
                 android:textSize="25sp" />
 
             <EditText
-                android:id="@+id/editText"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:autofillHints="@string/hint_age"
                 android:fontFamily="@font/cutefont"
                 android:hint="@string/hint_age"
                 android:inputType="number"
+                android:id = "@+id/age"
                 android:textColorHint="#f2ed6f"
                 android:textSize="25sp" />
 
@@ -139,6 +143,8 @@
                 android:background="@drawable/button_back"
                 android:fontFamily="@font/cutefont"
                 android:text="@string/back"
+                android:id = "@+id/back"
+                android:OnClick = "goBack"
                 android:textColor="#FFEB3B"
                 android:textSize="25sp" />
 
@@ -150,6 +156,7 @@
                 android:background="@drawable/button_back"
                 android:fontFamily="@font/cutefont"
                 android:text="@string/register"
+                android:id = "@+id/register"
                 android:textColor="#FFEB3B"
                 android:textSize="25sp" />
 
