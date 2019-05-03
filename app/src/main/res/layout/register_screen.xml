@@ -156,6 +156,7 @@
                 android:background="@drawable/button_back"
                 android:fontFamily="@font/cutefont"
                 android:text="@string/register"
+                android:onClick="registrate"
                 android:id = "@+id/register"
                 android:textColor="#FFEB3B"
                 android:textSize="25sp" />
