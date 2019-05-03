@@ -22,4 +22,9 @@
     <string name="take_quiz_btn_text">Take quiz</string>
     <string name="default_quiz_name">Quiz Name</string>
     <string name="submit_quiz_text">Submit Quiz</string>
+    <string name="results_title">Results</string>
+    <string name="done_button_text">Done</string>
+    <string name="question_ph">Question</string>
+    <string name="chosen_answer_ph">Chosen Answer</string>
+    <string name="actual_answer_ph">Actual Answer</string>
 </resources>
