@@ -156,11 +156,14 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
-
+    /*
+     *  Gets all question from the database
+     *  input: N/A
+     *  output: Arraylist containing all Question objects
+     */
     public ArrayList<Question> getAllQuestions() {
         ArrayList<Question> array_list = new ArrayList<Question>();
 
-        //hp = new HashMap();
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor res =  db.rawQuery( "select * from questions", null );
         res.moveToFirst();
@@ -185,11 +188,14 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
-
+    /*
+    *  Gets 5 random question from the database that are of the specified difficulty
+    *  input: int difficulty 1, 2, or 3
+    *  output: Arraylist containing 5 Question objects
+    */
     public ArrayList<Question> getFiveQuestions(int difficulty) {
         ArrayList<Question> array_list = new ArrayList<Question>();
 
-        //hp = new HashMap();
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor res;
@@ -244,7 +250,11 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
-
+    /*
+     *  Gets an Answer object from the database by its ID
+     *  input: int answerID
+     *  output: Answer object
+     */
     public Answer getAnswerByID(int aID) {
         ArrayList<Answer> array_list = new ArrayList<Answer>();
 
@@ -268,7 +278,11 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
-
+    /*
+     *  Checks if a username is already present in the database
+     *  input: String username
+     *  output: boolean true if the username is already taken, false if the username is available
+     */
     public boolean usernameAlreadyTaken(String un) {
         ArrayList<Account> array_list = new ArrayList<Account>();
 
@@ -299,7 +313,11 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
-
+    /*
+     *  Gets the Account object from the database that matches the entered credentials
+     *  input: String username, String password
+     *  output: Account object that has the inputted username, returns null if no account with the specified username exists
+     */
     public Account verifyLogin(String un, String pw) {
         ArrayList<Account> array_list = new ArrayList<Account>();
 
@@ -329,7 +347,11 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
-
+    /*
+     *  Changes the password of an account in the database
+     *  input: String username, String new password
+     *  output: boolean true if successful, false if failed
+     */
     public boolean changePassword ( String un, String newpassword ) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
