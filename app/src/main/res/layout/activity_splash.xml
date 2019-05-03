@@ -38,7 +38,7 @@
     <TextView
         android:id="@+id/creator_teardrop"
         android:layout_width="wrap_content"
-        android:layout_height="15dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="@string/creator_teardrop_text"
         android:textAlignment="textEnd"
