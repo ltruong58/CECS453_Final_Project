@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".QuizSelectActivity">
+    tools:context=".QuizSelectActivity"
+    android:background="#F30B1A24">
 
     <TextView
         android:id="@+id/choose_diff_title"
@@ -14,16 +15,17 @@
         android:gravity="center"
         android:text="@string/choose_difficulty_title"
         android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="24sp"
+        android:fontFamily="@font/cutefont"
+        android:textColor="#FFEB3B"
+        android:textSize="45sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
-        android:layout_width="145dp"
-        android:layout_height="107dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:gravity="center"
         android:orientation="vertical"
@@ -36,24 +38,33 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/cutefont"
+            android:onClick="onRadioButtonClicked"
             android:text="@string/diff_level_1"
-            android:onClick="onRadioButtonClicked"/>
+            android:textColor="#FFEB3B"
+            android:textSize="45sp" />
 
         <RadioButton
             android:id="@+id/radiobtn_diff_2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/cutefont"
+            android:onClick="onRadioButtonClicked"
             android:text="@string/diff_level_2"
-            android:onClick="onRadioButtonClicked"/>
+            android:textColor="#FFEB3B"
+            android:textSize="45sp" />
 
         <RadioButton
             android:id="@+id/radiobtn_diff_3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:fontFamily="@font/cutefont"
+            android:onClick="onRadioButtonClicked"
             android:text="@string/diff_level_3"
-            android:onClick="onRadioButtonClicked"/>
+            android:textColor="#FFEB3B"
+            android:textSize="45sp" />
 
     </RadioGroup>
 
@@ -61,8 +72,12 @@
         android:id="@+id/startquiz_btn"
         android:layout_width="101dp"
         android:layout_height="55dp"
-        android:layout_marginBottom="300dp"
+        android:layout_marginBottom="250dp"
         android:text="@string/take_quiz_btn_text"
+        android:fontFamily="@font/cutefont"
+        android:textColor="#FFEB3B"
+        android:textSize="25sp"
+        android:background="@drawable/button_back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

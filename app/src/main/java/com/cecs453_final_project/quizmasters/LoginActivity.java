@@ -26,7 +26,6 @@ public class LoginActivity extends AppCompatActivity {
 		mUser = (EditText) findViewById(R.id.uname);
 		mPass = (EditText) findViewById(R.id.password);
 
-
 	}
 
 	public void goToRegister(View view) {
