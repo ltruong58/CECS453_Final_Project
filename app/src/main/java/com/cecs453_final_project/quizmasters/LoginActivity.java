@@ -10,8 +10,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.cecs453_final_project.quizmasters.Model.Account;
-
 
 import java.io.FileInputStream;
 
@@ -68,8 +66,8 @@ public class LoginActivity extends AppCompatActivity {
                 else {
                     if(account.getPassword().equals(inputPassword) ){
                         if(account.getType().equals("admin")){
-                            Intent intent = new Intent(LoginActivity.this, AdminMainActivity.class);
-                            LoginActivity.this.startActivity(intent);
+//                            Intent intent = new Intent(LoginActivity.this, AdminMainActivity.class);
+//                            LoginActivity.this.startActivity(intent);
                         }else {
                             Toast.makeText(LoginActivity.this, "This is not admin account", Toast.LENGTH_LONG).show();
                         }

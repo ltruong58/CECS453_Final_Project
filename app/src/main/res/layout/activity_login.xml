@@ -28,23 +28,26 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@mipmap/quizmasters_logo" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation = "vertical">
+            android:orientation="vertical">
+
             <TextView
-                android:text = "@string/app_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="35sp"
                 android:layout_marginStart="10sp"
-                android:textColor="#FFEB3B"/>
+                android:text="@string/app_name"
+                android:textColor="#FFEB3B"
+                android:textSize="35sp" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10sp"
                 android:text="@string/creator_teardrop_text"
-                android:textColor="#FFEB3B"/>
+                android:textColor="#FFEB3B" />
 
         </LinearLayout>
     </LinearLayout>

@@ -14,6 +14,13 @@ public class Account {
         this.type = type;
     }
 
+    public Account() {
+        this.accountID = 0;
+        this.userName ="";
+        this.password ="";
+        this.type = "";
+    }
+
     public int getAccountID() {
         return accountID;
     }

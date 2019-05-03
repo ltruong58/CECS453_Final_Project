@@ -27,14 +27,6 @@
             android:layout_marginBottom="10dp"
             android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/cutefont"
-                android:text="@string/username"
-                android:textColor="#FFEB3B"
-                android:textSize="25sp" />
-
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -54,14 +46,6 @@
             android:layout_marginBottom="10dp"
             android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/cutefont"
-                android:text="@string/password"
-                android:textColor="#FFEB3B"
-                android:textSize="25sp" />
-
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -78,14 +62,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/cutefont"
-                android:text="@string/repassword"
-                android:textColor="#FFEB3B"
-                android:textSize="25sp" />
 
             <EditText
                 android:layout_width="wrap_content"
@@ -106,14 +82,6 @@
             android:layout_height="69dp"
             android:gravity="center_horizontal|center_vertical"
             android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/cutefont"
-                android:text="@string/age"
-                android:textColor="#FFEB3B"
-                android:textSize="25sp" />
 
             <EditText
 
@@ -144,7 +112,7 @@
                 android:fontFamily="@font/cutefont"
                 android:text="@string/back"
                 android:id = "@+id/back"
-                android:OnClick = "goBack"
+                android:onClick = "goBack"
                 android:textColor="#FFEB3B"
                 android:textSize="25sp" />
 

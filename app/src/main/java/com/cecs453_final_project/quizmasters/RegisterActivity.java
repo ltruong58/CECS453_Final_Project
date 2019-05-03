@@ -8,8 +8,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.cecs453_final_project.quizmasters.DBHelper;
-
 public class RegisterActivity extends AppCompatActivity {
 
     public EditText username;
@@ -23,7 +21,7 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.register_screen);
 
 
         back = (Button) findViewById(R.id.back);
