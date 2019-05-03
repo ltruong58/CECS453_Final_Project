@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class activeQuizAdapter extends RecyclerView.Adapter<activeQuizAdapter.aQ_ViewHolder> {
+public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.aQ_ViewHolder> {
 
 	private static String[] chosenAnswers;
 	private final ArrayList<Question> mQuestions;
@@ -23,9 +23,9 @@ public class activeQuizAdapter extends RecyclerView.Adapter<activeQuizAdapter.aQ
 		RadioGroup answerGroup;
 		RadioButton a1, a2, a3, a4;
 		int selected;
-		final activeQuizAdapter mAdapter;
+		final QuizAdapter mAdapter;
 
-		aQ_ViewHolder(View v, activeQuizAdapter adapter) {
+		aQ_ViewHolder(View v, QuizAdapter adapter) {
 			super(v);
 			this.mAdapter = adapter;
 
@@ -69,7 +69,7 @@ public class activeQuizAdapter extends RecyclerView.Adapter<activeQuizAdapter.aQ
 		}
 	}
 
-	activeQuizAdapter(Context context, ArrayList<Question> questions) {
+	QuizAdapter(Context context, ArrayList<Question> questions) {
 		mInflater = LayoutInflater.from(context);
 		mQuestions = questions;
 
@@ -77,7 +77,7 @@ public class activeQuizAdapter extends RecyclerView.Adapter<activeQuizAdapter.aQ
 	}
 
 	@NonNull @Override
-	public activeQuizAdapter.aQ_ViewHolder
+	public QuizAdapter.aQ_ViewHolder
 	  onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 		View mItemView = mInflater.inflate(R.layout.question_block, parent,false);
 		return new aQ_ViewHolder(mItemView, this);

@@ -14,12 +14,13 @@ import java.util.ArrayList;
 public class QuizActivity extends AppCompatActivity {
 	public static String CHOSEN_ANSWERS = "Come get your quiz answers here!";
 	public static String QUESTION_ID = "the question id is...";
+	public static String QUESTIONS_ = "the question is...";
 
 	private int difficulty;
 	private ArrayList<Question> questions;
 
 	private RecyclerView rc;
-	private activeQuizAdapter mAdapter;
+	private QuizAdapter mAdapter;
 	private RecyclerView.LayoutManager layoutManager;
 
 	private Button mSubmit;
@@ -43,7 +44,7 @@ public class QuizActivity extends AppCompatActivity {
 		layoutManager = new LinearLayoutManager(this);
 		rc.setLayoutManager(layoutManager);
 
-		mAdapter = new activeQuizAdapter(this, questions);
+		mAdapter = new QuizAdapter(this, questions);
 		rc.setAdapter(mAdapter);
 
 		mSubmit = (Button) findViewById(R.id.submit_btn);
@@ -54,8 +55,9 @@ public class QuizActivity extends AppCompatActivity {
 
 				if (isAdapterQuestionsAnswered()) {
 				    Intent resultIntent = new Intent(QuizActivity.this, QuizResultActivity.class);
-				    resultIntent.putExtra(CHOSEN_ANSWERS, getAdapterChosenAnswers());
 				    resultIntent.putExtra(QUESTION_ID, getQuestionIDs());
+				    resultIntent.putExtra(QUESTIONS_, getQuestions());
+					resultIntent.putExtra(CHOSEN_ANSWERS, getAdapterChosenAnswers());
 				    startActivity(resultIntent);
 				    finish();
 				}
@@ -63,18 +65,25 @@ public class QuizActivity extends AppCompatActivity {
 		});
 	}
 
-	String[] getAdapterChosenAnswers() {
-		return mAdapter.getChosenAnswers();
-	}
-	boolean isAdapterQuestionsAnswered() {
-		return mAdapter.isAllQuestionsAnswered();
-	}
 	int[] getQuestionIDs() {
 		int[] questionIDs = new int[5];
 		for (int i = 0; i < questions.size(); i++) {
 			questionIDs[i] = questions.get(i).getQuestionID();
 		}
 		return questionIDs;
+	}
+	String[] getQuestions() {
+		String[] res = new String[5];
+		for (int i = 0; i < questions.size(); i++) {
+			res[i] = questions.get(i).getQuestionText();
+		}
+		return res;
+	}
+	String[] getAdapterChosenAnswers() {
+		return mAdapter.getChosenAnswers();
+	}
+	boolean isAdapterQuestionsAnswered() {
+		return mAdapter.isAllQuestionsAnswered();
 	}
 
 	void temp_SubmitToast() {
