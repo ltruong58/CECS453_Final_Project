@@ -300,7 +300,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
 
-    public String verifyLogin(String un, String pw) {
+    public Account verifyLogin(String un, String pw) {
         ArrayList<Account> array_list = new ArrayList<Account>();
 
         SQLiteDatabase db = this.getReadableDatabase();
@@ -321,19 +321,10 @@ public class DBHelper extends SQLiteOpenHelper {
         }
 
         if( array_list.size()==0 ){
-            return "Username not found"; //if that username is not in the database
-        }else{
-
-
-            if( (array_list.get(0).getPassword()).equals(pw) ){
-                return "Succesfully loged in. AccountID = "+array_list.get(0).getAccountID(); //if that username is in the database and the password is correct
-            }else{
-                return "Incorrect password"; //if that username is in the database but the password is wrong
-            }
-
-
+            return null;
+        }else {
+            return array_list.get(0);
         }
-
 
     }
 
