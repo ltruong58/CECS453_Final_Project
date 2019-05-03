@@ -10,13 +10,13 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class resultQuizAdapter extends RecyclerView.Adapter<resultQuizAdapter.rQ_viewHolder> {
+public class QuizResultAdapter extends RecyclerView.Adapter<QuizResultAdapter.rQ_viewHolder> {
 
 	class rQ_viewHolder extends RecyclerView.ViewHolder {
 
-		resultQuizAdapter mAdapter;
+		QuizResultAdapter mAdapter;
 		TextView questionTV, chosenTV, actualTV;
-		rQ_viewHolder(View v, resultQuizAdapter adapter) {
+		rQ_viewHolder(View v, QuizResultAdapter adapter) {
 			super(v);
 			mAdapter = adapter;
 			questionTV = (TextView) v.findViewById(R.id.question_name);
@@ -25,14 +25,16 @@ public class resultQuizAdapter extends RecyclerView.Adapter<resultQuizAdapter.rQ
 		}
 	}
 
+	private final String[] mQuestions;
 	private final String[] mChosen;
-	private final ArrayList<Question> mQuestions;
+	private final ArrayList<Answer> mAnswers;
 	private LayoutInflater mInflater;
 
-	resultQuizAdapter(Context context, String[] chosenAnswers, ArrayList<Question> questions) {
+	QuizResultAdapter(Context context, String[] questions, String[] chosenAnswers, ArrayList<Answer> answers) {
 		mInflater = LayoutInflater.from(context);
-		mChosen = chosenAnswers;
 		mQuestions = questions;
+		mChosen = chosenAnswers;
+		mAnswers = answers;
 	}
 
 	@NonNull @Override
@@ -43,15 +45,15 @@ public class resultQuizAdapter extends RecyclerView.Adapter<resultQuizAdapter.rQ
 
 	@Override
 	public void onBindViewHolder(@NonNull rQ_viewHolder holder, int pos) {
-		Question q = mQuestions.get(pos);
-		holder.questionTV.setText(q.getQuestionText());
+		Answer a = mAnswers.get(pos);
+		holder.questionTV.setText(mQuestions[pos]);
 		holder.chosenTV.setText(mChosen[pos]);
-		holder.actualTV.setText(q.getCorrectAnswer());
+		holder.actualTV.setText(a.getChosenAnswer());
 	}
 
 	@Override
 	public int getItemCount() {
-		return mQuestions.size();
+		return mAnswers.size();
 	}
 
 }

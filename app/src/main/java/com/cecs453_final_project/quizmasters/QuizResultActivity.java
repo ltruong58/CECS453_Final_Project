@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class QuizResultActivity extends AppCompatActivity {
 
 	private RecyclerView rc;
-	private resultQuizAdapter mAdapter;
+	private QuizResultAdapter mAdapter;
 	private RecyclerView.LayoutManager layoutManager;
 
 	private String[] chosenAnswers;
@@ -28,19 +28,21 @@ public class QuizResultActivity extends AppCompatActivity {
 
 		String[] chosenAnswers = new String[5];
 		int[] questionIDs = new int[5];
+		String[] questions = new String[5];
 
 		Bundle bundle = getIntent().getExtras();
 		if (bundle != null) {
 			chosenAnswers = bundle.getStringArray(QuizActivity.CHOSEN_ANSWERS);
 			questionIDs = bundle.getIntArray(QuizActivity.QUESTION_ID);
+			questions = bundle.getStringArray(QuizActivity.QUESTIONS_);
 		}
-		ArrayList<Question> questions = getQuestions(questionIDs);
+		ArrayList<Answer> answers = getAnswers(questionIDs);
 
 		rc = (RecyclerView) findViewById(R.id.results_recycler_view);
 		layoutManager = new LinearLayoutManager(this);
 		rc.setLayoutManager(layoutManager);
 
-		mAdapter = new resultQuizAdapter(this, chosenAnswers, questions);
+		mAdapter = new QuizResultAdapter(this, questions, chosenAnswers, answers);
 		rc.setAdapter(mAdapter);
 
 		mComplete = (Button) findViewById(R.id.completion_btn);
@@ -55,9 +57,13 @@ public class QuizResultActivity extends AppCompatActivity {
 		});
 	}
 
-	ArrayList<Question> getQuestions(int[] questionIDs) {
+	ArrayList<Answer> getAnswers(int[] a_IDs) {
 		DBHelper helper = new DBHelper(this);
-		return helper.getCertainQuestions(questionIDs);
+		ArrayList<Answer> res = new ArrayList<>();
+		for (int id : a_IDs) {
+			res.add(helper.getAnswerByID(id));
+		}
+		return res;
 	}
 
 	void temp_resultToast(){
