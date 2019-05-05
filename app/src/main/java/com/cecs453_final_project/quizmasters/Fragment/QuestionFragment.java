@@ -1,3 +1,4 @@
+
 package com.cecs453_final_project.quizmasters.Fragment;
 
 import android.content.Context;
@@ -29,8 +30,8 @@ public class QuestionFragment extends Fragment {
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private int mColumnCount = 1;
-    private MyQuestionRecyclerViewAdapter myQuestionRecyclerViewAdapter;
-    private List<Question> mQuestions = new ArrayList<>();
+    private MyQuestionRecyclerViewAdapter myQuestionRecyclerViewAdapter = new MyQuestionRecyclerViewAdapter();
+    private final List<Question> mQuestions = new ArrayList<>();
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
@@ -58,7 +59,7 @@ public class QuestionFragment extends Fragment {
 
         // Get question from DBHelper
         DBHelper dbHelper = new DBHelper(getContext());
-        mQuestions = dbHelper.getAllQuestions();
+        mQuestions.addAll(dbHelper.getAllQuestions());
         myQuestionRecyclerViewAdapter.addItems(mQuestions);
     }
 

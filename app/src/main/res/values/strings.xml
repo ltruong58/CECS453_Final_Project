@@ -1,18 +1,52 @@
 <resources>
     <string name="app_name">QuizMasters</string>
-    <string name="username">Username: </string>
-    <string name="password">Password: </string>
+
     <string name="hint_username">Write your username here.</string>
     <string name="hint_password">Write your password.</string>
     <string name="repassword">Retype password:</string>
     <string name="hint_repass">Retype your password.</string>
     <string name="back">BACK</string>
-    <string name="register">REGISTER</string>
+
     <string name="logo_cd">The app logo.</string>
     <string name="creator_teardrop_text">A CECS 453 project</string>
+
+
+    <!-- Strings related to MainAdmin -->
+    <string name="btAddNewQuest">Add New Question</string>
+    <string name="btDelete">Delete This Question</string>
+
+    <!-- Strings related to AddQuestion -->
+    <string name="etQuestionText">Type your question here</string>
+    <string name="etCorrectAns">Type your correct answer here</string>
+    <string name="etAlternateAns1">Type your 1st alternate answer here</string>
+    <string name="etAlternateAns2">Type your 2nd alternate answer here</string>
+    <string name="etAlternateAns3">Type your 3rd alternate answer here</string>
+    <string name="btCreateQuestion"> Create</string>
+    <string name="btCancel"> Cancel</string>
+    <string name="tvDifficulty">Difficulty</string>
+
+    <!-- Strings related to login -->
+    <string name="sign_in">LOGIN</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="retype_password">Retype Password</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email">Email</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="new_user"><u>New User</u></string>
+    <string name="login_fail">Password or student ID is incorrect</string>
+    <string name="login_success">Log in success</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="user_login_button">Login as User</string>
+    <string name="admin_login_button">Login as Admin</string>
+    <string name="student_id_null">Student ID cannot be null</string>
+    <string name="password_null">Password cannot be null</string>
+
+    <!-- Strings related to register -->
+    <string name="register">Register</string>
     <string name="hint_age">Enter your age.</string>
-    <string name="age">Age:</string>
-    <string name="new_user">New User</string>
     <string name="b_admin">Enter as admin</string>
     <string name="u_button">Enter as user</string>
     <string name="choose_difficulty_title">Choose Difficulty</string>
@@ -22,4 +56,9 @@
     <string name="take_quiz_btn_text">Take quiz</string>
     <string name="default_quiz_name">Quiz Name</string>
     <string name="submit_quiz_text">Submit Quiz</string>
+    <string name="results_title">Results</string>
+    <string name="done_button_text">Done</string>
+    <string name="question_ph">Question</string>
+    <string name="chosen_answer_ph">Chosen Answer</string>
+    <string name="actual_answer_ph">Actual Answer</string>
 </resources>

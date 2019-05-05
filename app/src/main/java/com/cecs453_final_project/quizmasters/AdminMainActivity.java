@@ -1,3 +1,4 @@
+
 package com.cecs453_final_project.quizmasters;
 
 import android.content.Intent;
@@ -7,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import com.cecs453_final_project.quizmasters.Fragment.QuestionFragment;
+//import com.cecs453_final_project.quizmasters.Fragment.QuestionFragment;
 
 public class AdminMainActivity extends AppCompatActivity {
 
@@ -20,12 +21,13 @@ public class AdminMainActivity extends AppCompatActivity {
         btAddQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent addQuestionActivity = new Intent();
+                Intent addQuestionActivity = new Intent(AdminMainActivity.this, AddQuestionActivity.class);
                 AdminMainActivity.this.startActivity(addQuestionActivity);
             }
         });
 
-        QuestionFragment questionFragment = (QuestionFragment)
-                getSupportFragmentManager().findFragmentById(R.id.questionFragment);
+        //QuestionFragment questionFragment = (QuestionFragment)
+               // getSupportFragmentManager().findFragmentById(R.id.questionFragment);
     }
 }
+

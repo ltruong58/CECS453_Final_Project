@@ -5,125 +5,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F30B1A24"
     tools:context=".RegisterActivity">
 
     <LinearLayout
-        android:layout_width="312dp"
-        android:layout_height="472dp"
-        android:gravity="center"
-        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity = "center"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498">
+        android:orientation="vertical">
         <!---Username-->
-
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="61dp"
-            android:layout_marginBottom="10dp"
+            android:layout_height="wrap_content"
             android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/cutefont"
-                android:text="@string/username"
-                android:textColor="#FFEB3B"
-                android:textSize="25sp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/username"/>
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:autofillHints="@string/hint_username"
-                android:fontFamily="@font/cutefont"
-                android:hint="@string/hint_username"
-                android:inputType="text"
-                android:textColorHint="#f2ed6f"
-                android:textSize="25sp" />
+                android:hint="@string/hint_username"/>
         </LinearLayout>
         <!---Password-->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
             android:orientation="horizontal">
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/cutefont"
-                android:text="@string/password"
-                android:textColor="#FFEB3B"
-                android:textSize="25sp" />
+                android:text="@string/password"/>
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:autofillHints="@string/hint_password"
-                android:fontFamily="@font/cutefont"
-                android:hint="@string/hint_password"
-                android:inputType="textPassword"
-                android:textColorHint="#f2ed6f"
-                android:textSize="25sp" />
+                android:hint="@string/hint_password"/>
         </LinearLayout>
         <!---Retype Password-->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/cutefont"
-                android:text="@string/repassword"
-                android:textColor="#FFEB3B"
-                android:textSize="25sp" />
+                android:text="@string/repassword"/>
 
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:autofillHints="@string/hint_repass"
-                android:fontFamily="@font/cutefont"
-                android:hint="@string/hint_repass"
-                android:inputType="textPassword"
-                android:textColorHint="#f2ed6f"
-                android:textSize="25sp" />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="69dp"
-            android:gravity="center_horizontal|center_vertical"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/cutefont"
-                android:text="@string/age"
-                android:textColor="#FFEB3B"
-                android:textSize="25sp" />
-
-            <EditText
-                android:id="@+id/editText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:autofillHints="@string/hint_age"
-                android:fontFamily="@font/cutefont"
-                android:hint="@string/hint_age"
-                android:inputType="number"
-                android:textColorHint="#f2ed6f"
-                android:textSize="25sp" />
-
-
+                android:hint="@string/hint_repass"/>
         </LinearLayout>
 
         <LinearLayout
@@ -135,23 +71,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
-                android:layout_marginEnd="50dp"
+                android:layout_marginRight="50dp"
                 android:background="@drawable/button_back"
-                android:fontFamily="@font/cutefont"
                 android:text="@string/back"
-                android:textColor="#FFEB3B"
-                android:textSize="25sp" />
-
+                android:visibility="visible"
+                tools:visibility="visible" />
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="50dp"
+                android:layout_marginLeft="50dp"
                 android:layout_marginTop="50dp"
-                android:background="@drawable/button_back"
-                android:fontFamily="@font/cutefont"
-                android:text="@string/register"
-                android:textColor="#FFEB3B"
-                android:textSize="25sp" />
+                android:background = "@drawable/button_back"
+                android:text = "@string/register"/>
 
 
         </LinearLayout>

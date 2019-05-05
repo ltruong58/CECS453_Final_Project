@@ -11,14 +11,12 @@
         android:id="@+id/btAddNewQuestion"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button"
-        tools:text="Add New Question" />
+        android:text="Add New Question" />
 
     <fragment
         android:id="@+id/fmQuestionList"
-        android:name="com.cecs453_final_project.quizmasters.Fragment.AddNewQuestionFragment"
+        android:name="com.cecs453_final_project.quizmasters.Fragment.QuestionFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-
 
 </android.widget.LinearLayout>

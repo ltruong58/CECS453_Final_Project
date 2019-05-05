@@ -34,7 +34,7 @@ public class MyQuestionRecyclerViewAdapter extends RecyclerView.Adapter<MyQuesti
     }
 
     @Override
-    public void onBindViewHolder(final MyQuestionRecyclerViewAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(final MyQuestionRecyclerViewAdapter.ViewHolder holder, final int position) {
         holder.mItem = mQuestions.get(position);
         holder.question.setText(mQuestions.get(position).getQuestionText());
         holder.btDelete.setOnClickListener(new View.OnClickListener() {
@@ -43,18 +43,20 @@ public class MyQuestionRecyclerViewAdapter extends RecyclerView.Adapter<MyQuesti
                 // Delete question
                 DBHelper dbHelper = new DBHelper(v.getContext());
                  dbHelper.deleteQuestion(holder.mItem.getQuestionID());
+                 mQuestions.remove(position);
+                notifyDataSetChanged();
             }
         });
 
     }
 
-    public  void addItem(Question route) {
-        mQuestions.add(route);
+    public  void addItem(Question question) {
+        mQuestions.add(question);
         notifyDataSetChanged();
     }
 
-    public  void addItems(List<Question> routes) {
-        mQuestions.addAll(routes);
+    public  void addItems(List<Question> questions) {
+        mQuestions.addAll(questions);
         notifyDataSetChanged();
     }
 
