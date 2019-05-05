@@ -35,7 +35,7 @@
     <string name="email">Email</string>
     <string name="save">Save</string>
     <string name="cancel">Cancel</string>
-    <string name="new_user"><u>New User</u></string>
+    <string name="new_user"><u>New User?</u></string>
     <string name="login_fail">Password or student ID is incorrect</string>
     <string name="login_success">Log in success</string>
     <string name="error_field_required">This field is required</string>

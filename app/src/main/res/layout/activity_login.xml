@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content_login"
@@ -13,23 +14,29 @@
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:id="@+id/app_name_block"
+        android:layout_width="328dp"
+        android:layout_height="103dp"
+        android:layout_weight="0"
+        android:gravity="clip_horizontal"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
             android:id="@+id/logo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="60dp"
+            android:adjustViewBounds="false"
             android:contentDescription="@string/logo_cd"
-            app:layout_constraintBottom_toTopOf="@+id/splash_app_name"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            android:cropToPadding="false"
+            app:layout_constraintEnd_toLeftOf="@+id/app_name_block"
+
             app:srcCompat="@mipmap/quizmasters_logo" />
 
         <LinearLayout
+            android:id="@+id/app_name_text_block"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -53,71 +60,98 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/login_title"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginBottom="20dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
         android:layout_weight="3"
         android:gravity="center"
         android:text="@string/sign_in"
         android:textAlignment="center"
         android:textColor="@android:color/holo_orange_dark"
         android:textSize="60sp"
-        android:textStyle="normal|bold" />
-
-    <EditText
-        android:id="@+id/etUsername"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="10dp"
-        android:layout_weight="1"
-        android:background="@android:drawable/editbox_dropdown_light_frame"
-        android:ems="10"
-        android:hint="@string/username"
-        android:textColorLink="@color/colorLogin" />
-
-    <EditText
-        android:id="@+id/etPassword"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="10dp"
-        android:layout_weight="1"
-        android:background="@android:drawable/editbox_dropdown_light_frame"
-        android:ems="10"
-        android:hint="@string/password"
-        android:inputType="textPassword"
-        android:textColorLink="@color/colorLogin" />
+        android:textStyle="normal|bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/app_name_block" />
 
     <LinearLayout
+        android:id="@+id/input_block"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2"
-        android:weightSum="2"
-        android:orientation="vertical">
+        android:layout_marginTop="52dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_title">
+
+        <EditText
+            android:id="@+id/etUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:autofillHints="@string/hint_username"
+            android:background="@android:drawable/editbox_dropdown_light_frame"
+            android:ems="10"
+            android:hint="@string/username"
+            android:inputType="text"
+            android:textColorLink="@color/colorLogin" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:autofillHints="@string/hint_password"
+            android:background="@android:drawable/editbox_dropdown_light_frame"
+            android:ems="10"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:textColorLink="@color/colorLogin" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/buttons_linear_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingVertical="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_block">
+
         <Button
             android:id="@+id/btAdminLogin"
             style="@android:style/Widget.Material.Button.Colored"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:layout_weight="1"
+            android:layout_weight="0.5"
             android:background="?android:attr/colorEdgeEffect"
             android:onClick="logIn"
+            android:paddingHorizontal="8dp"
             android:text="@string/admin_login_button"
+            android:textAlignment="center"
             android:textAllCaps="false"
             android:textSize="16sp"
             android:textStyle="normal|bold" />
+
         <Button
             android:id="@+id/btUserLogin"
             style="@android:style/Widget.Material.Button.Colored"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:layout_gravity="center"
             android:layout_margin="10dp"
-            android:layout_weight="1"
+            android:layout_weight="0.5"
             android:background="?android:attr/colorEdgeEffect"
             android:onClick="logIn"
+            android:paddingHorizontal="8dp"
             android:text="@string/user_login_button"
             android:textAllCaps="false"
             android:textSize="16sp"
@@ -130,12 +164,15 @@
         android:id="@+id/tvNewUser"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_gravity="right"
-        android:layout_margin="10dp"
+        android:layout_gravity="end"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="110dp"
         android:layout_weight="1"
-        android:textSize="20sp"
         android:text="@string/new_user"
+        android:textColor="@color/quotes"
+        android:textSize="20sp"
         android:textStyle="normal|italic"
-        android:textColor="@color/quotes"/>
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
