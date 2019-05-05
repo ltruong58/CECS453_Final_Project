@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
-    static int SPLASH_TIME_OUT = 4000;
+    static int SPLASH_TIME_OUT = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +17,7 @@ public class SplashActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent splashIntent = new Intent(SplashActivity.this, RegisterActivity.class);
+                Intent splashIntent = new Intent(SplashActivity.this, LoginActivity.class);
                 startActivity(splashIntent);
                 finish();
             }
