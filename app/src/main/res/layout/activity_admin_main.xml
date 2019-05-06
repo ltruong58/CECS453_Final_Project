@@ -4,18 +4,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_color"
     android:orientation="vertical"
     tools:context=".AdminMainActivity">
 
-    <Button
-        android:id="@+id/btAddNewQuestion"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add New Question" />
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btAddNewQuestion"
+            style="android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16sp"
+            android:backgroundTint="@color/button_background_color"
+            android:text="@string/add_new_question"
+            android:textColor="@color/button_text_color" />
+
+        <Button
+            android:id="@+id/back_to_login_btn"
+            style="android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16sp"
+            android:backgroundTint="@color/button_background_color"
+            android:text="@string/back_to_login"
+            android:textColor="@color/button_text_color" />
+    </LinearLayout>
 
     <fragment
         android:id="@+id/fmQuestionList"
-        android:name="com.cecs453_final_project.quizmasters.Fragment.QuestionFragment"
+        android:name="com.cecs453_final_project.quizmasters.QuestionFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

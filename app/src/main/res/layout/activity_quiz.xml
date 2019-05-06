@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_color"
     tools:context=".QuizActivity">
 
     <android.support.v7.widget.RecyclerView
@@ -25,10 +26,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
+        android:backgroundTint="#3b0086"
         android:fontFamily="@font/cutefont"
-        android:background="@drawable/button_back"
-        android:textColor="#FFEB3B"
         android:text="@string/submit_quiz_text"
+        android:textColor="#FFEB3B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"

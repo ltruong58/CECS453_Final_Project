@@ -1,4 +1,4 @@
-package com.cecs453_final_project.quizmasters.Adapter;
+package com.cecs453_final_project.quizmasters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -7,10 +7,6 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.cecs453_final_project.quizmasters.DBHelper;
-import com.cecs453_final_project.quizmasters.Model.Question;
-import com.cecs453_final_project.quizmasters.R;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,23 +14,23 @@ import java.util.List;
  * {@link RecyclerView.Adapter} that can display questions
  * TODO: Replace the implementation with code for your data type.
  */
-public class MyQuestionRecyclerViewAdapter extends RecyclerView.Adapter<MyQuestionRecyclerViewAdapter.ViewHolder> {
+public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHolder> {
 
     private final List<Question> mQuestions;
 
-    public MyQuestionRecyclerViewAdapter() {
+    public QuestionAdapter() {
         mQuestions = new ArrayList<>();
     }
 
     @Override
-    public MyQuestionRecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public QuestionAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.fragment_question, parent, false);
-        return new MyQuestionRecyclerViewAdapter.ViewHolder(view);
+        return new QuestionAdapter.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(final MyQuestionRecyclerViewAdapter.ViewHolder holder, final int position) {
+    public void onBindViewHolder(final QuestionAdapter.ViewHolder holder, final int position) {
         holder.mItem = mQuestions.get(position);
         holder.question.setText(mQuestions.get(position).getQuestionText());
         holder.btDelete.setOnClickListener(new View.OnClickListener() {

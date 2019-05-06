@@ -4,18 +4,18 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/quizmasters_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@mipmap/quizmasters_logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".QuizSelectActivity"></activity>
         <activity android:name=".QuizResultActivity" />
         <activity android:name=".QuizActivity" />
-        <activity android:name=".QuizSelectActivity" />
         <activity android:name=".AdminMainActivity" />
         <activity android:name=".AddQuestionActivity" />
         <activity android:name=".LoginActivity" />
-        <activity android:name=".RegisterActivity"/>
+        <activity android:name=".RegisterActivity" />
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

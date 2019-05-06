@@ -4,18 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background_color"
     android:orientation="vertical"
-    tools:context=".RegisterActivity"
-    android:weightSum="10">
+    android:weightSum="10"
+    tools:context=".RegisterActivity">
 
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:text="@string/register"
         android:layout_weight="2"
         android:gravity="center"
+        android:text="@string/register"
         android:textColor="@android:color/holo_orange_dark"
         android:textSize="60sp"
         android:textStyle="normal|bold" />
@@ -24,84 +25,118 @@
         android:id="@+id/etRUsername"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginHorizontal="16sp"
         android:layout_weight="1"
+        android:autofillHints="@string/hint_username"
         android:ems="10"
         android:hint="@string/username"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textColor="@color/button_text_color"
+        android:textColorHint="@color/button_shadow_text" />
 
     <EditText
         android:id="@+id/etRPassword"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginHorizontal="16sp"
         android:layout_weight="1"
+        android:autofillHints="@string/hint_password"
         android:ems="10"
         android:hint="@string/password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:textColor="@color/button_text_color"
+        android:textColorHint="@color/button_shadow_text" />
 
     <EditText
         android:id="@+id/etRepassword"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginHorizontal="16sp"
         android:layout_weight="1"
+        android:autofillHints="@string/hint_repass"
         android:ems="10"
         android:hint="@string/retype_password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:textColor="@color/button_text_color"
+        android:textColorHint="@color/button_shadow_text" />
 
     <EditText
         android:id="@+id/etFname"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginHorizontal="16sp"
         android:layout_weight="1"
+        android:autofillHints="@string/first_name"
         android:ems="10"
         android:hint="@string/first_name"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textColor="@color/button_text_color"
+        android:textColorHint="@color/button_shadow_text" />
 
     <EditText
         android:id="@+id/etLname"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginHorizontal="16sp"
         android:layout_weight="1"
+        android:autofillHints="@string/last_name"
         android:ems="10"
         android:hint="@string/last_name"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textColor="@color/button_text_color"
+        android:textColorHint="@color/button_shadow_text" />
 
     <EditText
         android:id="@+id/etEmail"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginHorizontal="16sp"
         android:layout_weight="1"
+        android:autofillHints="@string/email"
         android:ems="10"
         android:hint="@string/email"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:textColor="@color/button_text_color"
+        android:textColorHint="@color/button_shadow_text" />
 
     <EditText
         android:id="@+id/etAge"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginHorizontal="16sp"
         android:layout_weight="1"
+        android:autofillHints="@string/hint_age"
         android:ems="10"
         android:hint="@string/hint_age"
-        android:inputType="number" />
+        android:inputType="number"
+        android:textColor="@color/button_text_color"
+        android:textColorHint="@color/button_shadow_text" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:orientation="horizontal"
-        android:layout_weight="1">
+        android:layout_height="wrap_content"
+        android:layout_marginVertical="16dp"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/btSave"
-            android:layout_width="wrap_content"
+            style="android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/save" />
+            android:backgroundTint="@color/button_background_color"
+            android:text="@string/save"
+            android:textColor="@color/button_text_color" />
 
         <Button
             android:id="@+id/btCancel"
-            android:layout_width="wrap_content"
+            style="android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="@string/cancel" />
+            android:backgroundTint="@color/button_background_color"
+            android:text="@string/cancel"
+            android:textColor="@color/button_text_color" />
     </LinearLayout>
 
 </LinearLayout>

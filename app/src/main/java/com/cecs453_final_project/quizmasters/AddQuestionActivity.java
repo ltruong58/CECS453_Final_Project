@@ -54,7 +54,7 @@ public class AddQuestionActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(AddQuestionActivity.this, AdminMainActivity.class);
                 startActivity(intent);
-
+                finish();
             }
         });
     }

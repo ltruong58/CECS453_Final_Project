@@ -10,6 +10,7 @@
     <string name="logo_cd">The app logo.</string>
     <string name="creator_teardrop_text">A CECS 453 project</string>
 
+    <string name="back_to_login">Go back</string>
 
     <!-- Strings related to MainAdmin -->
     <string name="btAddNewQuest">Add New Question</string>
@@ -21,7 +22,7 @@
     <string name="etAlternateAns1">Type your 1st alternate answer here</string>
     <string name="etAlternateAns2">Type your 2nd alternate answer here</string>
     <string name="etAlternateAns3">Type your 3rd alternate answer here</string>
-    <string name="btCreateQuestion"> Create</string>
+    <string name="btCreateQuestion">Create</string>
     <string name="btCancel"> Cancel</string>
     <string name="tvDifficulty">Difficulty</string>
 
@@ -61,4 +62,11 @@
     <string name="question_ph">Question</string>
     <string name="chosen_answer_ph">Chosen Answer</string>
     <string name="actual_answer_ph">Actual Answer</string>
+
+    <string name="_1">1</string>
+    <string name="_2">2</string>
+    <string name="_3">3</string>
+
+    <string name="add_new_question">Add New Question</string>
+    <string name="example">example</string>
 </resources>

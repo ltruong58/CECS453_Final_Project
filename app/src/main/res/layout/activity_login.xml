@@ -6,7 +6,7 @@
     android:id="@+id/content_login"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F30B1A24"
+    android:background="@color/background_color"
     android:orientation="vertical"
     android:weightSum="10">
 
@@ -31,7 +31,6 @@
             android:adjustViewBounds="false"
             android:contentDescription="@string/logo_cd"
             android:cropToPadding="false"
-            app:layout_constraintEnd_toLeftOf="@+id/app_name_block"
 
             app:srcCompat="@mipmap/quizmasters_logo" />
 
@@ -46,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10sp"
                 android:text="@string/app_name"
-                android:textColor="#FFEB3B"
+                android:textColor="@color/button_text_color"
                 android:textSize="35sp" />
 
             <TextView
@@ -54,7 +53,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10sp"
                 android:text="@string/creator_teardrop_text"
-                android:textColor="#FFEB3B" />
+                android:textColor="@color/button_text_color" />
 
         </LinearLayout>
     </LinearLayout>
@@ -63,7 +62,7 @@
         android:id="@+id/login_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="32dp"
         android:layout_weight="3"
         android:gravity="center"
         android:text="@string/sign_in"
@@ -79,7 +78,7 @@
         android:id="@+id/input_block"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="24dp"
         android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
@@ -93,10 +92,11 @@
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:autofillHints="@string/hint_username"
-            android:background="@android:drawable/editbox_dropdown_light_frame"
-            android:ems="10"
+            android:ems="12"
             android:hint="@string/username"
             android:inputType="text"
+            android:textColor="@color/button_text_color"
+            android:textColorHint="@color/button_shadow_text"
             android:textColorLink="@color/colorLogin" />
 
         <EditText
@@ -106,10 +106,11 @@
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:autofillHints="@string/hint_password"
-            android:background="@android:drawable/editbox_dropdown_light_frame"
-            android:ems="10"
+            android:ems="12"
             android:hint="@string/password"
             android:inputType="textPassword"
+            android:textColor="@color/button_text_color"
+            android:textColorHint="@color/button_shadow_text"
             android:textColorLink="@color/colorLogin" />
     </LinearLayout>
 
@@ -165,14 +166,14 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_gravity="end"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="32dp"
-        android:layout_marginBottom="110dp"
         android:layout_weight="1"
         android:text="@string/new_user"
         android:textColor="@color/quotes"
         android:textSize="20sp"
         android:textStyle="normal|italic"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttons_linear_layout" />
 
 </android.support.constraint.ConstraintLayout>

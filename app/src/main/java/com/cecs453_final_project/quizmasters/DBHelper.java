@@ -1,18 +1,14 @@
 
 package com.cecs453_final_project.quizmasters;
 
-import java.util.ArrayList;
-import java.util.Random;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 
-import com.cecs453_final_project.quizmasters.Model.Account;
-import com.cecs453_final_project.quizmasters.Model.Answer;
-import com.cecs453_final_project.quizmasters.Model.Question;
+import java.util.ArrayList;
+import java.util.Random;
 
 public class DBHelper extends SQLiteOpenHelper {
 

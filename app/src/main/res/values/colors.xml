@@ -16,4 +16,11 @@
     <color name= "authors">#00E5FF</color>
     <color name= "title">#FE2E2E</color>
     <color name="profile">#E3F2FD</color>
+
+    <color name="button_text_color">#FFEB3B</color>
+    <color name="button_shadow_text">#99FFEB3B</color>
+    <color name="button_background_color">#3b0086</color>
+    <color name="radio_button_color">#4C3469</color>
+    <color name="background_color">#F30B1A24</color>
+    <color name="ghost_color">#00000000</color>
 </resources>

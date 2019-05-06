@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/ghost_color"
     android:orientation="vertical"
     android:padding="6dp">
 
@@ -11,6 +11,9 @@
         android:id="@+id/question_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/button_text_color"
+        android:textSize="20sp"
+        android:textStyle="bold"
         tools:text="question?" />
 
     <RadioGroup
@@ -22,24 +25,32 @@
             android:id="@+id/answer_one"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:buttonTint="@color/radio_button_color"
+            android:textColor="@color/button_text_color"
             tools:text="option 1" />
 
         <RadioButton
             android:id="@+id/answer_two"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:buttonTint="@color/radio_button_color"
+            android:textColor="@color/button_text_color"
             tools:text="option 2" />
 
         <RadioButton
             android:id="@+id/answer_three"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:buttonTint="@color/radio_button_color"
+            android:textColor="@color/button_text_color"
             tools:text="option 3" />
 
         <RadioButton
             android:id="@+id/answer_four"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:buttonTint="@color/radio_button_color"
+            android:textColor="@color/button_text_color"
             tools:text="option 4" />
     </RadioGroup>
 </LinearLayout>

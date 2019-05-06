@@ -2,13 +2,12 @@
 package com.cecs453_final_project.quizmasters;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 
-//import com.cecs453_final_project.quizmasters.Fragment.QuestionFragment;
+//import com.cecs453_final_project.quizmasters.QuestionFragment;
 
 public class AdminMainActivity extends AppCompatActivity {
 
@@ -23,6 +22,16 @@ public class AdminMainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent addQuestionActivity = new Intent(AdminMainActivity.this, AddQuestionActivity.class);
                 AdminMainActivity.this.startActivity(addQuestionActivity);
+            }
+        });
+
+        final Button btGoBack = (Button) findViewById(R.id.back_to_login_btn);
+        btGoBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent back = new Intent(AdminMainActivity.this, LoginActivity.class);
+                AdminMainActivity.this.startActivity(back);
+                finish();
             }
         });
 

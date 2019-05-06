@@ -7,7 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 
 public class SplashActivity extends AppCompatActivity {
 
-    static int SPLASH_TIME_OUT = 1;
+    final int SPLASH_TIMEOUT_SECONDS = 2;
+    final int SPLASH_TIME_OUT = 1000 * SPLASH_TIMEOUT_SECONDS;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
