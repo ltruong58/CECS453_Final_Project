@@ -1,3 +1,4 @@
+
 package com.cecs453_final_project.quizmasters;
 
 import java.util.ArrayList;
@@ -8,6 +9,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteDatabase;
+
+import com.cecs453_final_project.quizmasters.Model.Account;
+import com.cecs453_final_project.quizmasters.Model.Answer;
+import com.cecs453_final_project.quizmasters.Model.Question;
 
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -46,6 +51,33 @@ public class DBHelper extends SQLiteOpenHelper {
         super(context, DATABASE_NAME , null, 1);
     }
 
+    public void resetDB() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DROP TABLE IF EXISTS accounts");
+        db.execSQL("DROP TABLE IF EXISTS questions");
+        db.execSQL("DROP TABLE IF EXISTS takenQuizzes");
+        db.execSQL("DROP TABLE IF EXISTS answers");
+
+        db.execSQL(
+                "create table accounts " +
+                        "(accountID integer primary key, userName text,password text,type text)"
+        );
+
+        db.execSQL(
+                "create table questions " +
+                        "(questionID integer primary key, questionText text, correctAnswer text, altAnswer1 text, altAnswer2 text, altAnswer3 text, difficulty integer)"
+        );
+
+        db.execSQL(
+                "create table takenQuizzes " +
+                        "(takenQuizID integer primary key, accountID integer)"
+        );
+
+        db.execSQL(
+                "create table answers " +
+                        "(answerID integer primary key, quizID integer, questionID integer ,chosenAnswer text)"
+        );
+    }
     @Override
     public void onCreate(SQLiteDatabase db) {
         // TODO Auto-generated method stub
@@ -189,10 +221,10 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
     /*
-    *  Gets 5 random question from the database that are of the specified difficulty
-    *  input: int difficulty 1, 2, or 3
-    *  output: Arraylist containing 5 Question objects
-    */
+     *  Gets 5 random question from the database that are of the specified difficulty
+     *  input: int difficulty 1, 2, or 3
+     *  output: Arraylist containing 5 Question objects
+     */
     public ArrayList<Question> getFiveQuestions(int difficulty) {
         ArrayList<Question> array_list = new ArrayList<Question>();
 
@@ -371,14 +403,12 @@ public class DBHelper extends SQLiteOpenHelper {
         mydb.insertQuestion("test4 question text","test4 correct answer", "test4 alt answer 1", "test4 alt answer 2", "test4 alt answer 3",1);
         mydb.insertQuestion("test5 question text","test5 correct answer", "test5 alt answer 1", "test5 alt answer 2", "test5 alt answer 3",1);
         mydb.insertQuestion("test6 question text","test6 correct answer", "test6 alt answer 1", "test6 alt answer 2", "test6 alt answer 3",1);
-
         mydb.insertQuestion("test7 question text","test7 correct answer", "test7 alt answer 1", "test7 alt answer 2", "test7 alt answer 3",2);
         mydb.insertQuestion("test8 question text","test8 correct answer", "test8 alt answer 1", "test8 alt answer 2", "test8 alt answer 3",2);
         mydb.insertQuestion("test9 question text","test9 correct answer", "test9 alt answer 1", "test9 alt answer 2", "test9 alt answer 3",2);
         mydb.insertQuestion("test10 question text","test10 correct answer", "test10 alt answer 1", "test5 alt answer 2", "test10 alt answer 3",2);
         mydb.insertQuestion("test11 question text","test11 correct answer", "test11 alt answer 1", "test11 alt answer 2", "test11 alt answer 3",2);
         mydb.insertQuestion("test12 question text","test12 correct answer", "test12 alt answer 1", "test12 alt answer 2", "test12 alt answer 3",2);
-
         mydb.insertQuestion("test13 question text","test13 correct answer", "test13 alt answer 1", "test13 alt answer 2", "test13 alt answer 3",3);
         mydb.insertQuestion("test14 question text","test14 correct answer", "test14 alt answer 1", "test14 alt answer 2", "test14 alt answer 3",3);
         mydb.insertQuestion("test15 question text","test15 correct answer", "test15 alt answer 1", "test15 alt answer 2", "test15 alt answer 3",3);

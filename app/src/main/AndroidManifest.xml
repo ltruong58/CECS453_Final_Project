@@ -12,6 +12,8 @@
         <activity android:name=".QuizResultActivity" />
         <activity android:name=".QuizActivity" />
         <activity android:name=".QuizSelectActivity" />
+        <activity android:name=".AdminMainActivity" />
+        <activity android:name=".AddQuestionActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity"/>
         <activity android:name=".SplashActivity">
