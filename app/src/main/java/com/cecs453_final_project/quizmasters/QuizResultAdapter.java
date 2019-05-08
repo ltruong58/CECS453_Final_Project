@@ -27,10 +27,10 @@ public class QuizResultAdapter extends RecyclerView.Adapter<QuizResultAdapter.rQ
 
 	private final String[] mQuestions;
 	private final String[] mChosen;
-	private final ArrayList<Answer> mAnswers;
+	private final String[] mAnswers;
 	private LayoutInflater mInflater;
 
-	QuizResultAdapter(Context context, String[] questions, String[] chosenAnswers, ArrayList<Answer> answers) {
+	QuizResultAdapter(Context context, String[] questions, String[] chosenAnswers, String[] answers) {
 		mInflater = LayoutInflater.from(context);
 		mQuestions = questions;
 		mChosen = chosenAnswers;
@@ -45,15 +45,14 @@ public class QuizResultAdapter extends RecyclerView.Adapter<QuizResultAdapter.rQ
 
 	@Override
 	public void onBindViewHolder(@NonNull rQ_viewHolder holder, int pos) {
-		Answer a = mAnswers.get(pos);
-		holder.questionTV.setText(mQuestions[pos]);
-		holder.chosenTV.setText(mChosen[pos]);
-		holder.actualTV.setText(a.getChosenAnswer());
+		holder.questionTV.setText("Question #" + (pos + 1) + ":\n " + mQuestions[pos]);
+		holder.chosenTV.setText("Your answer: " + mChosen[pos]);
+		holder.actualTV.setText("Correct answer: " + mAnswers[pos]);
 	}
 
 	@Override
 	public int getItemCount() {
-		return mAnswers.size();
+		return mAnswers.length;
 	}
 
 }

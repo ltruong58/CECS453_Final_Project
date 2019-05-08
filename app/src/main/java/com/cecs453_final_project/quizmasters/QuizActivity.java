@@ -13,9 +13,8 @@ import java.util.ArrayList;
 
 public class QuizActivity extends AppCompatActivity {
 	public static String CHOSEN_ANSWERS = "Come get your quiz answers here!";
-	public static String QUESTION_ID = "the question id is...";
 	public static String QUESTIONS_ = "the question is...";
-
+	public static String CORRECT_ANSWERS = "Correct Answers";
 	private int difficulty;
 	private ArrayList<Question> questions;
 
@@ -55,11 +54,15 @@ public class QuizActivity extends AppCompatActivity {
 
 				if (isAdapterQuestionsAnswered()) {
 				    Intent resultIntent = new Intent(QuizActivity.this, QuizResultActivity.class);
-				    resultIntent.putExtra(QUESTION_ID, getQuestionIDs());
-				    resultIntent.putExtra(QUESTIONS_, getQuestions());
-					resultIntent.putExtra(CHOSEN_ANSWERS, getAdapterChosenAnswers());
+				    Bundle extra = new Bundle();
+
+				    extra.putSerializable(QUESTIONS_, getQuestions());
+				    extra.putSerializable(CHOSEN_ANSWERS, getAdapterChosenAnswers());
+					extra.putSerializable(CORRECT_ANSWERS, getCorrectAnswer());
+
+				    resultIntent.putExtra("extra", extra);
 				    startActivity(resultIntent);
-				    finish();
+				    //finish();
 				}
 			}
 		});
@@ -76,6 +79,14 @@ public class QuizActivity extends AppCompatActivity {
 		String[] res = new String[5];
 		for (int i = 0; i < questions.size(); i++) {
 			res[i] = questions.get(i).getQuestionText();
+		}
+		return res;
+	}
+
+	String[] getCorrectAnswer() {
+		String[] res = new String[5];
+		for (int i = 0; i < questions.size(); i++) {
+			res[i] = questions.get(i).getCorrectAnswer();
 		}
 		return res;
 	}
