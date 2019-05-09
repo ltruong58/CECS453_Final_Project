@@ -12,14 +12,16 @@
         android:layout_height="wrap_content"
         android:paddingVertical="10dp"
         android:text="@string/question_ph"
-        tools:text="@string/question_ph"
-        android:textSize="18sp"/>
+        android:textColor="@color/button_text_color"
+        android:textSize="18sp"
+        tools:text="@string/question_ph" />
 
     <TextView
         android:id="@+id/chosen_answer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/chosen_answer_ph"
+        android:textColor="@color/button_shadow_text"
         tools:text="@string/chosen_answer_ph" />
 
     <TextView
@@ -27,5 +29,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/actual_answer_ph"
+        android:textColor="@color/button_shadow_text"
         tools:text="@string/actual_answer_ph" />
 </LinearLayout>

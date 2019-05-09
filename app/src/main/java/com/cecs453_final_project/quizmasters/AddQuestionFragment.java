@@ -88,10 +88,7 @@ public class AddQuestionFragment extends Fragment {
                         lvl = 3;
                         break;
                 }
-
                 DBHelper dbHelper = new DBHelper(getContext());
-
-
             }
         });
     }

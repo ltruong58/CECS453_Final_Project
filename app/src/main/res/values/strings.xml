@@ -69,4 +69,9 @@
 
     <string name="add_new_question">Add New Question</string>
     <string name="example">example</string>
+
+    <!-- Strings related to quiz results -->
+    <string name="response_question">Question #%1$d: %2$s</string>
+    <string name="response_chosen_answer">Your answer: %1$s</string>
+    <string name="response_actual_answer">Correct answer: %1$s</string>
 </resources>

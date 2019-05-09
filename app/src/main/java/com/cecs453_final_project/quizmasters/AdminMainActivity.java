@@ -7,8 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
-//import com.cecs453_final_project.quizmasters.QuestionFragment;
-
 public class AdminMainActivity extends AppCompatActivity {
 
     @Override
@@ -20,7 +18,8 @@ public class AdminMainActivity extends AppCompatActivity {
         btAddQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent addQuestionActivity = new Intent(AdminMainActivity.this, AddQuestionActivity.class);
+                Intent addQuestionActivity = new Intent(
+                        AdminMainActivity.this, AddQuestionActivity.class);
                 AdminMainActivity.this.startActivity(addQuestionActivity);
             }
         });
@@ -34,9 +33,6 @@ public class AdminMainActivity extends AppCompatActivity {
                 finish();
             }
         });
-
-        //QuestionFragment questionFragment = (QuestionFragment)
-               // getSupportFragmentManager().findFragmentById(R.id.questionFragment);
     }
 }
 

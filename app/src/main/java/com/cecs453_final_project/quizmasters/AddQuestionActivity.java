@@ -52,7 +52,8 @@ public class AddQuestionActivity extends AppCompatActivity {
                 DBHelper dbHelper = new DBHelper(AddQuestionActivity.this);
                 dbHelper.insertQuestion(question, corAns, alt1Ans, alt2Ans, alt3Ans, lvl);
 
-                Intent intent = new Intent(AddQuestionActivity.this, AdminMainActivity.class);
+                Intent intent = new Intent(
+                        AddQuestionActivity.this, AdminMainActivity.class);
                 startActivity(intent);
                 finish();
             }

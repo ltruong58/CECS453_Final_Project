@@ -53,16 +53,19 @@ public class QuizActivity extends AppCompatActivity {
 //				temp_SubmitToast();
 
 				if (isAdapterQuestionsAnswered()) {
-				    Intent resultIntent = new Intent(QuizActivity.this, QuizResultActivity.class);
-				    Bundle extra = new Bundle();
+				    Intent resultIntent = new Intent(
+				    		QuizActivity.this, QuizResultActivity.class);
 
+				    Bundle extra = new Bundle();
 				    extra.putSerializable(QUESTIONS_, getQuestions());
 				    extra.putSerializable(CHOSEN_ANSWERS, getAdapterChosenAnswers());
 					extra.putSerializable(CORRECT_ANSWERS, getCorrectAnswer());
 
 				    resultIntent.putExtra("extra", extra);
 				    startActivity(resultIntent);
-				    //finish();
+				    finish();
+				} else {
+					incomplete_Toast();
 				}
 			}
 		});
@@ -97,7 +100,12 @@ public class QuizActivity extends AppCompatActivity {
 		return mAdapter.isAllQuestionsAnswered();
 	}
 
+	void incomplete_Toast() {
+		Toast.makeText(this,
+				"Complete all the questions before submitting",
+				Toast.LENGTH_SHORT).show();
+	}
 	void temp_SubmitToast() {
-		Toast.makeText(this, "Quiz submit", Toast.LENGTH_SHORT).show();
+		Toast.makeText(this,"Quiz submit", Toast.LENGTH_SHORT).show();
 	}
 }

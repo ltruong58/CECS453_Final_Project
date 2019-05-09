@@ -8,8 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-
 public class QuizResultAdapter extends RecyclerView.Adapter<QuizResultAdapter.rQ_viewHolder> {
 
 	class rQ_viewHolder extends RecyclerView.ViewHolder {
@@ -30,7 +28,7 @@ public class QuizResultAdapter extends RecyclerView.Adapter<QuizResultAdapter.rQ
 	private final String[] mAnswers;
 	private LayoutInflater mInflater;
 
-	QuizResultAdapter(Context context, String[] questions, String[] chosenAnswers, String[] answers) {
+	QuizResultAdapter(Context context,String[] questions,String[] chosenAnswers,String[] answers) {
 		mInflater = LayoutInflater.from(context);
 		mQuestions = questions;
 		mChosen = chosenAnswers;
@@ -45,9 +43,9 @@ public class QuizResultAdapter extends RecyclerView.Adapter<QuizResultAdapter.rQ
 
 	@Override
 	public void onBindViewHolder(@NonNull rQ_viewHolder holder, int pos) {
-		holder.questionTV.setText("Question #" + (pos + 1) + ":\n " + mQuestions[pos]);
-		holder.chosenTV.setText("Your answer: " + mChosen[pos]);
-		holder.actualTV.setText("Correct answer: " + mAnswers[pos]);
+		holder.questionTV.setText(mInflater.getContext().getString(R.string.response_question, (pos+1), mQuestions[pos]));
+		holder.chosenTV.setText(mInflater.getContext().getString(R.string.response_chosen_answer, mChosen[pos]));
+		holder.actualTV.setText(mInflater.getContext().getString(R.string.response_actual_answer, mAnswers[pos]));
 	}
 
 	@Override

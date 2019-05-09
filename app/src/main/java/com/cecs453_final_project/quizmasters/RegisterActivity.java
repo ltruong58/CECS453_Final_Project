@@ -45,20 +45,25 @@ public class RegisterActivity extends AppCompatActivity {
                 // Check all fields
                 if(username.isEmpty() || password.isEmpty() || rePassword.isEmpty() || fName.isEmpty() ||
                         lName.isEmpty() || email.isEmpty() || age.isEmpty()){
-                    Toast.makeText(RegisterActivity.this, "All fields are mandatory.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegisterActivity.this,
+                            "All fields are mandatory.", Toast.LENGTH_LONG).show();
                 }
 
                 // Check retype password
                 else if(!password.equals(rePassword) ) {
-                    Toast.makeText(RegisterActivity.this, "Retype password field needs to match the password field.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegisterActivity.this,
+                            "Retype password field needs to match the password field.",
+                            Toast.LENGTH_LONG).show();
                 }
 
                 // Check age
                 else if(iAge < 1 || iAge > 99){
-                    Toast.makeText(RegisterActivity.this, "Age needs to be a number between 1 to 99.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegisterActivity.this,
+                            "Age needs to be a number between 1 to 99.", Toast.LENGTH_LONG).show();
                 }
 
-                File fileR = new File(RegisterActivity.this.getFilesDir().getPath().toString() + "/Lab2File.txt");
+                File fileR = new File(
+                        RegisterActivity.this.getFilesDir().getPath().toString() + "/Lab2File.txt");
                 String absolutePath = fileR.getAbsolutePath();
                 // Store data in your file
                 FileOutputStream fileOut;

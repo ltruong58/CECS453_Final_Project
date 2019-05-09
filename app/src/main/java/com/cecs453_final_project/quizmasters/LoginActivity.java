@@ -25,8 +25,7 @@ public class LoginActivity extends AppCompatActivity {
         dbHelper = new DBHelper(this);
         dbHelper.resetDB();
 
-        dbHelper.insertAccount("admin", "admin", "admin");
-        dbHelper.insertAccount("user", "user", "user");
+        debug();
 
         initExQuestionsToDB();
 
@@ -39,37 +38,36 @@ public class LoginActivity extends AppCompatActivity {
         btUserLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String inputUser;
-                String inputPassword;
-
-                inputUser = etUsername.getText().toString();
-                inputPassword = etPassword.getText().toString();
+                String inputUser = etUsername.getText().toString();
+                String inputPassword = etPassword.getText().toString();
 
                 Account account = new Account();
 
                 account = dbHelper.verifyLogin(inputUser, inputPassword);
-                //account.setUserName("user");
-                //account.setPassword("user");
-                //account.setType("user");
+                // debug_setCred(account, "user", "user", "user");
 
                 if(account == null){
-                    Toast.makeText(LoginActivity.this, "Username not found", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this,
+                            "Username not found", Toast.LENGTH_LONG).show();
                     loginAttempts += 1;
-                }
-                else {
+                } else {
                     boolean inValidated = false;
                     if(account.getPassword().equals(inputPassword) ){
                         if(account.getType().equals("user")){
                             // Change to your UserActivity
-                            Intent intent = new Intent(LoginActivity.this, QuizSelectActivity.class);
+                            Intent intent = new Intent(
+                                    LoginActivity.this, QuizSelectActivity.class);
                             LoginActivity.this.startActivity(intent);
-                            finish();
+//                            finish();
+                            etUsername.setText("");
+                            etPassword.setText("");
                         } else {
-                            Toast.makeText(LoginActivity.this, "This is not user account", Toast.LENGTH_LONG).show();
+                            Toast.makeText(LoginActivity.this,
+                                    "This is not user account", Toast.LENGTH_LONG).show();
                             inValidated = true;
-                        }
-                    } else {
-                        Toast.makeText(LoginActivity.this, "Incorrect password", Toast.LENGTH_LONG).show();
+                    }   } else {
+                        Toast.makeText(LoginActivity.this,
+                                "Incorrect password", Toast.LENGTH_LONG).show();
                         inValidated = true;
                     }
                     loginAttempts += (inValidated ? 1 : 0);
@@ -78,7 +76,8 @@ public class LoginActivity extends AppCompatActivity {
                 // Allow user to make at most 2 mistakes
                 if(loginAttempts == 3) {
                     Toast.makeText(LoginActivity.this,
-                            "Exiting the program in "+SHUTDOWN_TIMEOUT_SECONDS+"s", Toast.LENGTH_LONG).show();
+                            "Exiting the program in "+SHUTDOWN_TIMEOUT_SECONDS+"s",
+                            Toast.LENGTH_LONG).show();
 
                     final Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
@@ -94,36 +93,35 @@ public class LoginActivity extends AppCompatActivity {
         btAdminLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String inputUser;
-                String inputPassword;
-
-                inputUser = etUsername.getText().toString();
-                inputPassword = etPassword.getText().toString();
+                String inputUser = etUsername.getText().toString();
+                String inputPassword = etPassword.getText().toString();
 
                 Account account = new Account();
 
                 account = dbHelper.verifyLogin(inputUser, inputPassword);
-                //account.setUserName("admin");
-                //account.setPassword("admin");
-                //account.setType("admin");
+                // debug_setCred(account, "admin", "admin", "admin");
 
                 if(account == null){
-                    Toast.makeText(LoginActivity.this, "Username not found", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this,
+                            "Username not found", Toast.LENGTH_LONG).show();
                     loginAttempts += 1;
-                }
-                else {
+                } else {
                     boolean inValidated = false;
                     if(account.getPassword().equals(inputPassword) ){
                         if(account.getType().equals("admin")){
-                            Intent intent = new Intent(LoginActivity.this, AdminMainActivity.class);
+                            Intent intent = new Intent(
+                                    LoginActivity.this, AdminMainActivity.class);
                             startActivity(intent);
-                            finish();
+//                            finish();
+                            etUsername.setText("");
+                            etPassword.setText("");
                         } else {
-                            Toast.makeText(LoginActivity.this, "This is not admin account", Toast.LENGTH_LONG).show();
+                            Toast.makeText(LoginActivity.this,
+                                    "This is not admin account", Toast.LENGTH_LONG).show();
                             inValidated = true;
-                        }
-                    } else {
-                        Toast.makeText(LoginActivity.this, "Incorrect password", Toast.LENGTH_LONG).show();
+                    }   } else {
+                        Toast.makeText(LoginActivity.this,
+                                "Incorrect password", Toast.LENGTH_LONG).show();
                         inValidated = true;
                     }
                     loginAttempts += (inValidated ? 1 : 0);
@@ -132,7 +130,8 @@ public class LoginActivity extends AppCompatActivity {
                 // Allow user to make at most 2 mistakes
                 if(loginAttempts == 3) {
                     Toast.makeText(LoginActivity.this,
-                            "Exiting the program in "+SHUTDOWN_TIMEOUT_SECONDS+"s", Toast.LENGTH_LONG).show();
+                            "Exiting the program in "+SHUTDOWN_TIMEOUT_SECONDS+"s",
+                            Toast.LENGTH_LONG).show();
 
                     final Handler handler = new Handler();
                     handler.postDelayed(new Runnable() {
@@ -150,10 +149,21 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Create intent to start Register Activity
-                Intent registerIntent = new Intent(LoginActivity.this, RegisterActivity.class);
+                Intent registerIntent = new Intent(
+                        LoginActivity.this, RegisterActivity.class);
                 LoginActivity.this.startActivity(registerIntent);
             }
         });
+    }
+
+    void debug() {
+        dbHelper.insertAccount("admin", "admin", "admin");
+        dbHelper.insertAccount("user", "user", "user");
+    }
+    void debug_setCred(Account account, String user, String pass, String type) {
+        account.setUserName(user);
+        account.setPassword(pass);
+        account.setType(type);
     }
 
     void initExQuestionsToDB() {

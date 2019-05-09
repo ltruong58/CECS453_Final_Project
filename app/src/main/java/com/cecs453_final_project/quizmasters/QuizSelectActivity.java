@@ -31,7 +31,7 @@ public class QuizSelectActivity extends AppCompatActivity {
 							QuizSelectActivity.this, QuizActivity.class);
 					quizIntent.putExtra(SELECT_VALUE, select);
 					startActivity(quizIntent);
-					finish();
+//					finish();
 				} else {
 					errorToast();
 				}
@@ -42,7 +42,8 @@ public class QuizSelectActivity extends AppCompatActivity {
 		backButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				startActivity(new Intent(QuizSelectActivity.this, LoginActivity.class));
+				startActivity(new Intent(
+						QuizSelectActivity.this, LoginActivity.class));
 				finish();
 			}
 		});

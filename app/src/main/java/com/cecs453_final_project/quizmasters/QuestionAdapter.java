@@ -46,12 +46,12 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
 
     }
 
-    public  void addItem(Question question) {
+    public void addItem(Question question) {
         mQuestions.add(question);
         notifyDataSetChanged();
     }
 
-    public  void addItems(List<Question> questions) {
+    public void addItems(List<Question> questions) {
         mQuestions.addAll(questions);
         notifyDataSetChanged();
     }
@@ -72,13 +72,11 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
         public final ImageButton btDelete;
         public Question mItem;
 
-
         public ViewHolder(View view) {
             super(view);
             mView = view;
             question = (TextView) view.findViewById(R.id.tvQuestion);
             btDelete = (ImageButton) view.findViewById(R.id.iBtDelete);
-
         }
 
         @Override

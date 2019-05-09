@@ -8,8 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-
 public class QuizResultActivity extends AppCompatActivity {
 
 	private RecyclerView rc;
@@ -50,9 +48,9 @@ public class QuizResultActivity extends AppCompatActivity {
 			@Override
 			public void onClick(View view) {
 				temp_resultToast(correctAnswers, chosenAnswers);
-//				Intent i = new Intent(/*QuizResultActivity.this, ???*/);
+//				Intent i = new Intent(QuizResultActivity.this, QuizSelectActivity.class);
 //				startActivity(i);
-//				finish();
+				finish();
 			}
 		});
 	}
@@ -67,6 +65,8 @@ public class QuizResultActivity extends AppCompatActivity {
 		return cnt;
 	}
 	void temp_resultToast(String[] strCorr, String[] strChos){
-		Toast.makeText(this, "Quiz completed. You got " + countCorrectAnswer(strChos, strCorr) + " correct answers!" , Toast.LENGTH_SHORT).show();
+		Toast.makeText(this,
+				"Quiz completed. You got "+countCorrectAnswer(strChos, strCorr)+" correct answers!",
+				Toast.LENGTH_SHORT).show();
 	}
 }
