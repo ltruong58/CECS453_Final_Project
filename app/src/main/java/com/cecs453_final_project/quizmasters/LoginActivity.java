@@ -55,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
                             Intent intent = new Intent(
                                     LoginActivity.this, QuizSelectActivity.class);
                             LoginActivity.this.startActivity(intent);
-//                            finish();
+                            finish();
                             etUsername.setText("");
                             etPassword.setText("");
                         } else {
@@ -109,7 +109,7 @@ public class LoginActivity extends AppCompatActivity {
                             Intent intent = new Intent(
                                     LoginActivity.this, AdminMainActivity.class);
                             startActivity(intent);
-//                            finish();
+                            finish();
                             etUsername.setText("");
                             etPassword.setText("");
                         } else {

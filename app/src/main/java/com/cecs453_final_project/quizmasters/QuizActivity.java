@@ -21,6 +21,7 @@ public class QuizActivity extends AppCompatActivity {
 	private RecyclerView rc;
 	private QuizAdapter mAdapter;
 	private RecyclerView.LayoutManager layoutManager;
+	private DBHelper dbHelper;
 
 	private Button mSubmit;
 
@@ -37,7 +38,8 @@ public class QuizActivity extends AppCompatActivity {
 		}
 
 		// get the questions
-		questions = (new DBHelper(this)).getFiveQuestions(difficulty);
+		dbHelper = new DBHelper(this);
+		questions = dbHelper.getFiveQuestions(difficulty);
 
 		rc = (RecyclerView) findViewById(R.id.active_quiz_recycler_view);
 		layoutManager = new LinearLayoutManager(this);
