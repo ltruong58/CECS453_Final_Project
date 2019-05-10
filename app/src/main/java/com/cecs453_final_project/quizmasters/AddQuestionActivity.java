@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.RadioGroup;
 
 public class AddQuestionActivity extends AppCompatActivity {
+    DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +50,7 @@ public class AddQuestionActivity extends AppCompatActivity {
                         break;
                 }
 
-                DBHelper dbHelper = new DBHelper(AddQuestionActivity.this);
-                dbHelper.resetDB();
+                dbHelper = new DBHelper(AddQuestionActivity.this);
                 dbHelper.insertQuestion(question, corAns, alt1Ans, alt2Ans, alt3Ans, lvl);
 
                 Intent intent = new Intent(

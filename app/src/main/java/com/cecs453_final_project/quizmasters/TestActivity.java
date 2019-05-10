@@ -18,7 +18,7 @@ public class TestActivity extends AppCompatActivity {
         mydb = new DBHelper(this);
 
         // entering test question (only execute once to populate database)
-        /*
+/*
         mydb.insertQuestion("test1 question text","test1 correct answer", "test1 alt answer 1", "test1 alt answer 2", "test1 alt answer 3",1);
         mydb.insertQuestion("test2 question text","test2 correct answer", "test2 alt answer 1", "test2 alt answer 2", "test2 alt answer 3",1);
         mydb.insertQuestion("test3 question text","test3 correct answer", "test3 alt answer 1", "test3 alt answer 2", "test3 alt answer 3",1);
@@ -41,12 +41,17 @@ public class TestActivity extends AppCompatActivity {
         mydb.insertQuestion("test18 question text","test18 correct answer", "test18 alt answer 1", "test18 alt answer 2", "test18 alt answer 3",3);
         */
 
-        ArrayList<Question> test_array_list = mydb.getFiveQuestions(1);
+        ArrayList<Question> test_array_list = mydb.getAllQuestions();
 
         //mydb.deleteQuestion(test_array_list.get(0).getQuestionID());
 
-        Toast.makeText(getApplicationContext(),  Integer.toString(test_array_list.size()),Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(),  Integer.toString(test_array_list.size()),Toast.LENGTH_LONG).show();
 
+        //Toast.makeText(getApplicationContext(),  test_array_list.get(0).getCorrectAnswer(),Toast.LENGTH_LONG).show();
+
+        String s = mydb.getCorrectAnswerByQuestionId( test_array_list.get(0).getQuestionID() );
+
+        Toast.makeText(getApplicationContext(),  s,Toast.LENGTH_LONG).show();
 
 
     }
