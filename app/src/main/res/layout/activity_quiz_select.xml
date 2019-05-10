@@ -4,101 +4,108 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".QuizSelectActivity"
-    android:background="@color/background_color">
+    android:background="@color/background_color"
+    tools:context=".QuizSelectActivity">
 
-    <TextView
-        android:id="@+id/choose_diff_title"
-        android:layout_width="231dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="150dp"
-        android:gravity="center"
-        android:text="@string/choose_difficulty_title"
-        android:textAlignment="center"
-        android:fontFamily="@font/cutefont"
-        android:textColor="#FFEB3B"
-        android:textSize="45sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:gravity="center"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/choose_diff_title">
 
-        <RadioButton
-            android:id="@+id/radiobtn_diff_1"
+
+        <TextView
+            android:id="@+id/choose_diff_title"
+            android:layout_width="231dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="150dp"
+            android:fontFamily="@font/cutefont"
+            android:gravity="center"
+            android:text="@string/choose_difficulty_title"
+            android:textAlignment="center"
+            android:textColor="#FFEB3B"
+            android:textSize="45sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:buttonTint="@color/radio_button_color"
-            android:fontFamily="@font/cutefont"
-            android:onClick="onRadioButtonClicked"
-            android:text="@string/diff_level_1"
-            android:textColor="@color/button_text_color"
-            android:textSize="45sp" />
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/choose_diff_title">
 
-        <RadioButton
-            android:id="@+id/radiobtn_diff_2"
+            <RadioButton
+                android:id="@+id/radiobtn_diff_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:buttonTint="@color/radio_button_color"
+                android:fontFamily="@font/cutefont"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/diff_level_1"
+                android:textColor="@color/button_text_color"
+                android:textSize="45sp" />
+
+            <RadioButton
+                android:id="@+id/radiobtn_diff_2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:buttonTint="@color/radio_button_color"
+                android:fontFamily="@font/cutefont"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/diff_level_2"
+                android:textColor="@color/button_text_color"
+                android:textSize="45sp" />
+
+            <RadioButton
+                android:id="@+id/radiobtn_diff_3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:buttonTint="@color/radio_button_color"
+                android:fontFamily="@font/cutefont"
+                android:onClick="onRadioButtonClicked"
+                android:text="@string/diff_level_3"
+                android:textColor="@color/button_text_color"
+                android:textSize="45sp" />
+
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/startquiz_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:buttonTint="@color/radio_button_color"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="250dp"
+            android:backgroundTint="@color/button_background_color"
             android:fontFamily="@font/cutefont"
-            android:onClick="onRadioButtonClicked"
-            android:text="@string/diff_level_2"
+            android:text="@string/take_quiz_btn_text"
             android:textColor="@color/button_text_color"
-            android:textSize="45sp" />
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
-        <RadioButton
-            android:id="@+id/radiobtn_diff_3"
+        <Button
+            android:id="@+id/back_to_login_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:buttonTint="@color/radio_button_color"
+            android:layout_marginBottom="52dp"
+            android:backgroundTint="@color/button_background_color"
             android:fontFamily="@font/cutefont"
-            android:onClick="onRadioButtonClicked"
-            android:text="@string/diff_level_3"
+            android:text="@string/back_to_login"
             android:textColor="@color/button_text_color"
-            android:textSize="45sp" />
+            android:textSize="25sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.888"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    </RadioGroup>
 
-    <Button
-        android:id="@+id/startquiz_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="250dp"
-        android:backgroundTint="@color/button_background_color"
-        android:fontFamily="@font/cutefont"
-        android:text="@string/take_quiz_btn_text"
-        android:textColor="@color/button_text_color"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/back_to_login_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="52dp"
-        android:backgroundTint="@color/button_background_color"
-        android:fontFamily="@font/cutefont"
-        android:text="@string/back_to_login"
-        android:textColor="@color/button_text_color"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.888"
-        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

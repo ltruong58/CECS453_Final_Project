@@ -50,6 +50,7 @@ public class AddQuestionActivity extends AppCompatActivity {
                 }
 
                 DBHelper dbHelper = new DBHelper(AddQuestionActivity.this);
+                dbHelper.resetDB();
                 dbHelper.insertQuestion(question, corAns, alt1Ans, alt2Ans, alt3Ans, lvl);
 
                 Intent intent = new Intent(
