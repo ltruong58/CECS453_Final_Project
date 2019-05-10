@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/quizmasters_logo_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
-        <activity android:name=".QuizSelectActivity"></activity>
+        <activity android:name=".QuestionDetailsActivity"></activity>
+        <activity android:name=".QuizSelectActivity" />
         <activity android:name=".QuizResultActivity" />
         <activity android:name=".QuizActivity" />
         <activity android:name=".AdminMainActivity" />

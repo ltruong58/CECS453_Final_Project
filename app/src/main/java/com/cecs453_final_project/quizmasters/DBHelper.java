@@ -247,6 +247,37 @@ public class DBHelper extends SQLiteOpenHelper {
         return array_list;
     }
 
+    /*
+     *  Gets all question from the database
+     *  input: N/A
+     *  output: Arraylist containing all Question objects
+     */
+    public Question getQuestionById(int qID) {
+        ArrayList<Question> array_list = new ArrayList<Question>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor res =  db.rawQuery( "select * from questions where questionID = ?", new String[] {Integer.toString(qID)} );
+        res.moveToFirst();
+
+        while(res.isAfterLast() == false){
+            Question q = new Question(
+                    Integer.parseInt(res.getString(res.getColumnIndex(QUESTIONS_COLUMN_QUESTIONID))),
+                    res.getString(res.getColumnIndex(QUESTIONS_COLUMN_QUESTIONTEXT)),
+                    res.getString(res.getColumnIndex(QUESTIONS_COLUMN_CORRECTANSWER)),
+                    res.getString(res.getColumnIndex(QUESTIONS_COLUMN_ALTANSWER1)),
+                    res.getString(res.getColumnIndex(QUESTIONS_COLUMN_ALTANSWER2)),
+                    res.getString(res.getColumnIndex(QUESTIONS_COLUMN_ALTANSWER3)),
+                    res.getInt(res.getColumnIndex(QUESTIONS_COLUMN_DIFFICULTY))
+
+            );
+
+            array_list.add(q);
+
+            res.moveToNext();
+        }
+        return array_list.get(0);
+    }
+
 
     /*
      *  Gets 5 random question from the database that are of the specified difficulty

@@ -1,5 +1,6 @@
 package com.cecs453_final_project.quizmasters;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -41,6 +42,15 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
                  dbHelper.deleteQuestion(holder.mItem.getQuestionID());
                  mQuestions.remove(position);
                 notifyDataSetChanged();
+            }
+        });
+
+        holder.question.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), QuestionDetailsActivity.class);
+                intent.putExtra("id", holder.mItem.getQuestionID());
+                view.getContext().startActivity(intent);
             }
         });
 

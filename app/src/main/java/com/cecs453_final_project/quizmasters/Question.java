@@ -1,12 +1,13 @@
 package com.cecs453_final_project.quizmasters;
 
+import java.io.Serializable;
 import java.sql.Time;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 
-public class Question {
+public class Question implements Serializable {
 
 	private int questionID;
 	private String questionText;

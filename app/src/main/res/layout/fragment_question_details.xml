@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".QuestionDetailsFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:orientation="vertical"
+       android:weightSum="8">
+
+       <TextView
+           android:id="@+id/tvQuesDetailTitle"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="Question Details"
+           android:layout_weight="1.5"
+           android:textSize="30sp"
+           android:gravity="center"/>
+
+       <TextView
+           android:id="@+id/tvQuesText"
+           android:layout_width="match_parent"
+           android:layout_height="0dp"
+           android:text="ans2"
+           android:layout_weight="1.5"
+           android:textSize="20sp"/>
+
+       <TextView
+           android:id="@+id/tvCorAns"
+           android:layout_width="match_parent"
+           android:layout_height="0dp"
+           android:text="ans2"
+           android:layout_weight="1"/>
+
+       <TextView
+           android:id="@+id/tvAltAns1"
+           android:layout_width="match_parent"
+           android:layout_height="0dp"
+           android:text="ans2"
+           android:layout_weight="1"/>
+
+       <TextView
+           android:id="@+id/tvAltAns2"
+           android:layout_width="match_parent"
+           android:layout_height="0dp"
+           android:text="ans2"
+           android:layout_weight="1"/>
+
+       <TextView
+           android:id="@+id/tvAltAns3"
+           android:layout_width="match_parent"
+           android:layout_height="0dp"
+           android:text="ans2"
+           android:layout_weight="1"/>
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="0dp"
+           android:orientation="horizontal"
+           android:layout_weight="1">
+
+           <Button
+               android:id="@+id/btBack"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_weight="1"
+               android:text="Back" />
+
+           <Button
+               android:id="@+id/btEdit"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_weight="1"
+               android:text="Edit" />
+       </LinearLayout>
+   </LinearLayout>
+
+</FrameLayout>
