@@ -2,7 +2,7 @@ package com.cecs453_final_project.quizmasters;
 
 public class Account {
 
-    private int accountID;
+    private int accountID; //Basic object used to store the user data from the database and use it in the code.
     private String userName;
     private String password;
     private String type;
