@@ -421,6 +421,20 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
 
+    public boolean updateQuestion (Integer id, String questionText, String correctAnswer, String altAnswer1, String altAnswer2, String altAnswer3, Integer difficulty) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("questionText", questionText);
+        contentValues.put("correctAnswer", correctAnswer);
+        contentValues.put("altAnswer1", altAnswer1);
+        contentValues.put("altAnswer2", altAnswer2);
+        contentValues.put("altAnswer3", altAnswer3);
+        contentValues.put("difficulty", difficulty);
+        db.update("questions", contentValues, "id = ? ", new String[] { Integer.toString(id) } );
+        return true;
+    }
+
+
 
 }
 
