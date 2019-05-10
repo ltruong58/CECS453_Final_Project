@@ -45,31 +45,30 @@ public class RegisterActivity extends AppCompatActivity {
                 email = etEmail.getText().toString();
                 age = etAge.getText().toString();
                 int iAge = Integer.parseInt(age);
-                dbHelper.resetDB();
                 // Check all fields
 
 
 
                 if(username.isEmpty() || password.isEmpty() || rePassword.isEmpty() || fName.isEmpty() ||
-                        lName.isEmpty() || email.isEmpty() || age.isEmpty()){
+                        lName.isEmpty() || email.isEmpty() || age.isEmpty()){ //Check for no empty fields
                     Toast.makeText(RegisterActivity.this,
                             "All fields are mandatory.", Toast.LENGTH_LONG).show();
                 }
 
                 // Check retype password
-                else if(!password.equals(rePassword) ) {
+                else if(!password.equals(rePassword) ) { //Check for password matches
                     Toast.makeText(RegisterActivity.this,
                             "Retype password field needs to match the password field.",
                             Toast.LENGTH_LONG).show();
                 }
 
                 // Check age
-                else if(iAge < 1 || iAge > 99){
+                else if(iAge < 1 || iAge > 99){ //Check for age inside the range
                     Toast.makeText(RegisterActivity.this,
                             "Age needs to be a number between 1 to 99.", Toast.LENGTH_LONG).show();
                 }
                 else{
-                    dbHelper.insertAccount(username,password,"user");
+                    dbHelper.insertAccount(username,password,"user"); //Insert data into the database
                     Toast.makeText(RegisterActivity.this, "User created!", Toast.LENGTH_LONG).show();
                 }
 
@@ -81,9 +80,7 @@ public class RegisterActivity extends AppCompatActivity {
         btCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Create intent to go back to Login Activity
-//                Intent loginActivity = new Intent(RegisterActivity.this, LoginActivity.class);
-//                RegisterActivity.this.startActivity(loginActivity);
+                //Finishes the activity, obligates the activity to return to the login activity.
                 finish();
             }
         });

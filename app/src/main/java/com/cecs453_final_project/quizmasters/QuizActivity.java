@@ -35,20 +35,20 @@ public class QuizActivity extends AppCompatActivity {
 			difficulty = bundle.getInt(QuizSelectActivity.SELECT_VALUE, 1);
 		} else {
 			difficulty = 1;
-		}
+		} //Obtain the difficulty from the QuizAdapter. If not received, set easiest difficulty by default.
 
 		// get the questions
 		dbHelper = new DBHelper(this);
-		questions = dbHelper.getFiveQuestions(difficulty);
+		questions = dbHelper.getFiveQuestions(difficulty); //Gets five questions from the database based on the difficulty.
 
 		rc = (RecyclerView) findViewById(R.id.active_quiz_recycler_view);
 		layoutManager = new LinearLayoutManager(this);
 		rc.setLayoutManager(layoutManager);
 
 		mAdapter = new QuizAdapter(this, questions);
-		rc.setAdapter(mAdapter);
+		rc.setAdapter(mAdapter); //Set and show question list on screen.
 
-		mSubmit = (Button) findViewById(R.id.submit_btn);
+		mSubmit = (Button) findViewById(R.id.submit_btn); //Submit answers.
 		mSubmit.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
@@ -58,7 +58,7 @@ public class QuizActivity extends AppCompatActivity {
 				    Intent resultIntent = new Intent(
 				    		QuizActivity.this, QuizResultActivity.class);
 
-				    Bundle extra = new Bundle();
+				    Bundle extra = new Bundle(); //Send questions /w answers and correct answers to the result activity.
 				    extra.putSerializable(QUESTIONS_, getQuestions());
 				    extra.putSerializable(CHOSEN_ANSWERS, getAdapterChosenAnswers());
 					extra.putSerializable(CORRECT_ANSWERS, getCorrectAnswer());
@@ -67,7 +67,7 @@ public class QuizActivity extends AppCompatActivity {
 				    startActivity(resultIntent);
 				    finish();
 				} else {
-					incomplete_Toast();
+					incomplete_Toast(); //Tell the user that the quiz has not been completed.
 				}
 			}
 		});
@@ -76,19 +76,19 @@ public class QuizActivity extends AppCompatActivity {
 	int[] getQuestionIDs() {
 		int[] questionIDs = new int[5];
 		for (int i = 0; i < questions.size(); i++) {
-			questionIDs[i] = questions.get(i).getQuestionID();
+			questionIDs[i] = questions.get(i).getQuestionID(); //Obtain the question ID for every question.
 		}
 		return questionIDs;
 	}
 	String[] getQuestions() {
 		String[] res = new String[5];
-		for (int i = 0; i < questions.size(); i++) {
+		for (int i = 0; i < questions.size(); i++) { //Obtains the question statements for every question.
 			res[i] = questions.get(i).getQuestionText();
 		}
 		return res;
 	}
 
-	String[] getCorrectAnswer() {
+	String[] getCorrectAnswer() { //Obtains the correct answers from all the questions.
 		String[] res = new String[5];
 		for (int i = 0; i < questions.size(); i++) {
 			res[i] = questions.get(i).getCorrectAnswer();

@@ -34,7 +34,7 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.aQ_ViewHolder>
 			a1 = (RadioButton) v.findViewById(R.id.answer_one);
 			a2 = (RadioButton) v.findViewById(R.id.answer_two);
 			a3 = (RadioButton) v.findViewById(R.id.answer_three);
-			a4 = (RadioButton) v.findViewById(R.id.answer_four);
+			a4 = (RadioButton) v.findViewById(R.id.answer_four); //Sets up the android widgets to interact with the code.
 			selected = -1;
 
 			answerGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
@@ -80,17 +80,17 @@ public class QuizAdapter extends RecyclerView.Adapter<QuizAdapter.aQ_ViewHolder>
 	public QuizAdapter.aQ_ViewHolder
 	  onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 		View mItemView = mInflater.inflate(R.layout.question_block, parent,false);
-		return new aQ_ViewHolder(mItemView, this);
+		return new aQ_ViewHolder(mItemView, this); //Inflate question blocks
 	}
 
 	@Override
 	public void onBindViewHolder(@NonNull aQ_ViewHolder holder, int pos) {
 		Question q = mQuestions.get(pos);
 
-		holder.question_.setText(q.getQuestionText());
+		holder.question_.setText(q.getQuestionText()); //Set the question text in its box for the adapter.
 
 		//TODO: double-check this later for correctness
-		ArrayList<String> answers = q.randomizeAnswers();
+		ArrayList<String> answers = q.randomizeAnswers(); //Set answers to different radio buttons.
 		holder.a1.setText(answers.remove(0));
 		holder.a2.setText(answers.remove(0));
 		holder.a3.setText(answers.remove(0));
