@@ -11,6 +11,7 @@ import android.widget.RadioGroup;
 public class AddQuestionActivity extends AppCompatActivity {
     private DBHelper dbHelper;
     private int edit;
+    private Question ques;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,15 +29,15 @@ public class AddQuestionActivity extends AppCompatActivity {
         dbHelper = new DBHelper(AddQuestionActivity.this);
 
         if(edit != 0) {
-            Question ques = (Question) getIntent().getSerializableExtra("extra");
+            ques = (Question) getIntent().getSerializableExtra("extra");
             etQuestionText.setText(ques.getQuestionText());
             etCorrectAns.setText(ques.getCorrectAnswer());
             etAlt1Ans1.setText(ques.getAltAnswer1());
             etAlt1Ans2.setText(ques.getAltAnswer2());
             etAlt1Ans3.setText(ques.getAltAnswer3());
+
+            btCreateQuestion.setText("EDIT");
         }
-
-
         btCreateQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,6 +68,7 @@ public class AddQuestionActivity extends AppCompatActivity {
                     dbHelper.insertQuestion(question, corAns, alt1Ans, alt2Ans, alt3Ans, lvl);
                 }else {
                     // call dbHelper updateQues
+                    dbHelper.updateQuestion(ques.getQuestionID(), question, corAns, alt1Ans, alt2Ans, alt3Ans, lvl);
                 }
 
                 Intent intent = new Intent(AddQuestionActivity.this, AdminMainActivity.class);
