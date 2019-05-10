@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal"
@@ -9,23 +11,34 @@
 
     <TextView
         android:id="@+id/tvQuestion"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginHorizontal="16sp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="14dp"
+        android:layout_marginBottom="16dp"
         android:layout_weight="4"
+        android:ellipsize="end"
         android:gravity="center_vertical"
+        android:maxLength="45"
         android:text="@string/example"
         android:textAppearance="?attr/textAppearanceListItem"
-        android:textColor="@color/button_text_color" />
+        android:textColor="@color/button_text_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/iBtDelete"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_gravity="end"
         android:layout_weight="1"
-        android:layout_gravity="right"
         android:contentDescription="@string/btDelete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_delete" />
 
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

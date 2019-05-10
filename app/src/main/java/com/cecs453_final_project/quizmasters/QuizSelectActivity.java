@@ -13,11 +13,15 @@ public class QuizSelectActivity extends AppCompatActivity {
 	private Button startQuizButton, backButton;
 	public static String SELECT_VALUE = "get the selector value";
 	private int select;
+	private int accountId;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_quiz_select);
+
+		accountId = getIntent().getIntExtra(LoginActivity.ACCOUNT_, 0);
+//		System.out.println("account id: " + accountId);
 
 		select = 0;
 		startQuizButton = (Button) findViewById(R.id.startquiz_btn);
@@ -30,8 +34,10 @@ public class QuizSelectActivity extends AppCompatActivity {
 					Intent quizIntent = new Intent(
 							QuizSelectActivity.this, QuizActivity.class);
 					quizIntent.putExtra(SELECT_VALUE, select);
+					quizIntent.putExtra(LoginActivity.ACCOUNT_, accountId);
+
 					startActivity(quizIntent);
-//					finish();
+					finish();
 				} else {
 					errorToast();
 				}
@@ -89,5 +95,11 @@ public class QuizSelectActivity extends AppCompatActivity {
 					"Difficulty level " + selected + " chosen",
 					Toast.LENGTH_SHORT).show();
 		}
+	}
+
+	@Override
+	public void onBackPressed() {
+		startActivity(new Intent(QuizSelectActivity.this, LoginActivity.class));
+		finish();
 	}
 }

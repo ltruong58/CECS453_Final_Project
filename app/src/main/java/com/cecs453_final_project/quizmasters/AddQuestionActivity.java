@@ -35,8 +35,14 @@ public class AddQuestionActivity extends AppCompatActivity {
             etAlt1Ans1.setText(ques.getAltAnswer1());
             etAlt1Ans2.setText(ques.getAltAnswer2());
             etAlt1Ans3.setText(ques.getAltAnswer3());
+            switch(ques.getDifficulty()) {
+                case 1: rgDifficulty.check(R.id.rbt1); break;
+                case 2: rgDifficulty.check(R.id.rbt2); break;
+                case 3: rgDifficulty.check(R.id.rbt3); break;
+                default: break;
+            }
 
-            btCreateQuestion.setText("EDIT");
+            btCreateQuestion.setText(R.string.edit);
         }
         btCreateQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,20 +59,14 @@ public class AddQuestionActivity extends AppCompatActivity {
                 int selected = rgDifficulty.getCheckedRadioButtonId();
 
                 switch (selected){
-                    case R.id.rbt1:
-                        lvl = 1;
-                        break;
-                    case R.id.rbt2:
-                        lvl = 2;
-                        break;
-                    case R.id.rbt3:
-                        lvl = 3;
-                        break;
+                    case R.id.rbt1: lvl = 1; break;
+                    case R.id.rbt2: lvl = 2; break;
+                    case R.id.rbt3: lvl = 3; break;
                 }
 
                 if(edit == 0) { // Add new question
                     dbHelper.insertQuestion(question, corAns, alt1Ans, alt2Ans, alt3Ans, lvl);
-                }else {
+                } else {
                     // call dbHelper updateQues
                     dbHelper.updateQuestion(ques.getQuestionID(), question, corAns, alt1Ans, alt2Ans, alt3Ans, lvl);
                 }
@@ -76,5 +76,11 @@ public class AddQuestionActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(AddQuestionActivity.this, AdminMainActivity.class));
+        finish();
     }
 }

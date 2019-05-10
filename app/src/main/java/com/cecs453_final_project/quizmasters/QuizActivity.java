@@ -15,7 +15,8 @@ public class QuizActivity extends AppCompatActivity {
 	public static String CHOSEN_ANSWERS = "Come get your quiz answers here!";
 	public static String QUESTIONS_ = "the question is...";
 	public static String CORRECT_ANSWERS = "Correct Answers";
-	private int difficulty;
+	public static String QUIZ_ID = "quiz id";
+	private int difficulty, accountId, newTakenQuizId;
 	private ArrayList<Question> questions;
 
 	private RecyclerView rc;
@@ -33,13 +34,18 @@ public class QuizActivity extends AppCompatActivity {
 		Bundle bundle = getIntent().getExtras();
 		if (bundle != null) {
 			difficulty = bundle.getInt(QuizSelectActivity.SELECT_VALUE, 1);
+			accountId = bundle.getInt(LoginActivity.ACCOUNT_, 0);
 		} else {
 			difficulty = 1;
+			accountId = 0;
 		}
+//		System.out.println("account id: " + accountId);
 
 		// get the questions
 		dbHelper = new DBHelper(this);
 		questions = dbHelper.getFiveQuestions(difficulty);
+
+		newTakenQuizId = dbHelper.insertTakenQuiz(accountId);
 
 		rc = (RecyclerView) findViewById(R.id.active_quiz_recycler_view);
 		layoutManager = new LinearLayoutManager(this);
@@ -58,10 +64,17 @@ public class QuizActivity extends AppCompatActivity {
 				    Intent resultIntent = new Intent(
 				    		QuizActivity.this, QuizResultActivity.class);
 
+				    int[] questionId = getQuestionIDs();
+				    String[] chosenAnswer = getAdapterChosenAnswers();
+				    for(int i = 0; i < questionId.length; i++) {
+				    	dbHelper.insertAnswer(newTakenQuizId, questionId[i], chosenAnswer[i]);
+				    }
+
 				    Bundle extra = new Bundle();
 				    extra.putSerializable(QUESTIONS_, getQuestions());
 				    extra.putSerializable(CHOSEN_ANSWERS, getAdapterChosenAnswers());
 					extra.putSerializable(CORRECT_ANSWERS, getCorrectAnswer());
+					extra.putSerializable(LoginActivity.ACCOUNT_, accountId);
 
 				    resultIntent.putExtra("extra", extra);
 				    startActivity(resultIntent);
@@ -109,5 +122,14 @@ public class QuizActivity extends AppCompatActivity {
 	}
 	void temp_SubmitToast() {
 		Toast.makeText(this,"Quiz submit", Toast.LENGTH_SHORT).show();
+	}
+
+	@Override
+	public void onBackPressed() {
+		dbHelper.deleteTakenQuiz(newTakenQuizId);
+		Intent back = new Intent(QuizActivity.this, QuizSelectActivity.class);
+		back.putExtra(LoginActivity.ACCOUNT_,accountId);
+		startActivity(back);
+		finish();
 	}
 }

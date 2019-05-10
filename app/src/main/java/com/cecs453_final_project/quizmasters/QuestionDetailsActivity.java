@@ -1,13 +1,11 @@
 package com.cecs453_final_project.quizmasters;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
-import java.util.ArrayList;
 
 public class QuestionDetailsActivity extends AppCompatActivity {
 
@@ -43,6 +41,7 @@ public class QuestionDetailsActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(QuestionDetailsActivity.this, AdminMainActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -54,6 +53,7 @@ public class QuestionDetailsActivity extends AppCompatActivity {
                 intent.putExtra("extra", ques);
 
                 startActivity(intent);
+                finish();
             }
         });
     }

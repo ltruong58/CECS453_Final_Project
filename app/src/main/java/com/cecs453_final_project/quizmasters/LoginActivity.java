@@ -14,6 +14,7 @@ import android.widget.Toast;
 public class LoginActivity extends AppCompatActivity {
     final int SHUTDOWN_TIMEOUT_SECONDS = 3;
     final int SHUTDOWN_TIMEOUT = 1000 * SHUTDOWN_TIMEOUT_SECONDS;
+    static String ACCOUNT_ = "account id";
     private DBHelper dbHelper;
     static int loginAttempts = 0;
 
@@ -21,6 +22,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
 
         dbHelper = new DBHelper(this);
 
@@ -54,6 +56,7 @@ public class LoginActivity extends AppCompatActivity {
                             // Change to your UserActivity
                             Intent intent = new Intent(
                                     LoginActivity.this, QuizSelectActivity.class);
+                            intent.putExtra(ACCOUNT_, account.getAccountID());
                             LoginActivity.this.startActivity(intent);
                             finish();
                             etUsername.setText("");

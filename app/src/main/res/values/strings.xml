@@ -74,4 +74,10 @@
     <string name="response_question">Question #%1$d: %2$s</string>
     <string name="response_chosen_answer">Your answer: %1$s</string>
     <string name="response_actual_answer">Correct answer: %1$s</string>
+
+    <string name="too_long_text">%1$s…</string>
+
+    <string name="edit">Edit</string>
+    <string name="question_details">Question Details</string>
+    <integer name="max_length">42</integer>
 </resources>

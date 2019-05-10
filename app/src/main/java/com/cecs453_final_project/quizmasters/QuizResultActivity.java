@@ -1,5 +1,6 @@
 package com.cecs453_final_project.quizmasters;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,6 +18,7 @@ public class QuizResultActivity extends AppCompatActivity {
 	private String[] chosenAnswers;
 	private String[] questions;
 	private String[] correctAnswers;
+	private int accountId;
 
 	private Button mComplete;
 
@@ -28,13 +30,16 @@ public class QuizResultActivity extends AppCompatActivity {
 		chosenAnswers = new String[5];
 		questions = new String[5];
 		correctAnswers = new String[5];
+		accountId = 0;
 
 		Bundle bundle = getIntent().getBundleExtra("extra");
 		if (bundle != null) {
 			chosenAnswers = (String[]) bundle.getSerializable(QuizActivity.CHOSEN_ANSWERS);
 			correctAnswers = (String[]) bundle.getSerializable(QuizActivity.CORRECT_ANSWERS);
 			questions = (String[]) bundle.getSerializable(QuizActivity.QUESTIONS_);
+			accountId = (int) bundle.getSerializable(LoginActivity.ACCOUNT_);
 		}
+//		System.out.println("account id: "+accountId);
 
 		rc = (RecyclerView) findViewById(R.id.results_recycler_view);
 		layoutManager = new LinearLayoutManager(this);
@@ -47,10 +52,7 @@ public class QuizResultActivity extends AppCompatActivity {
 		mComplete.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				temp_resultToast(correctAnswers, chosenAnswers);
-//				Intent i = new Intent(QuizResultActivity.this, QuizSelectActivity.class);
-//				startActivity(i);
-				finish();
+				complete();
 			}
 		});
 	}
@@ -68,5 +70,18 @@ public class QuizResultActivity extends AppCompatActivity {
 		Toast.makeText(this,
 				"Quiz completed. You got "+countCorrectAnswer(strChos, strCorr)+" correct answers!",
 				Toast.LENGTH_SHORT).show();
+	}
+
+	void complete() {
+		temp_resultToast(correctAnswers, chosenAnswers);
+		Intent i = new Intent(QuizResultActivity.this, QuizSelectActivity.class);
+		i.putExtra(LoginActivity.ACCOUNT_, accountId);
+		startActivity(i);
+		finish();
+	}
+
+	@Override
+	public void onBackPressed() {
+		complete();
 	}
 }

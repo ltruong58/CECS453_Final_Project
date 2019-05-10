@@ -50,6 +50,7 @@ public class SplashActivity extends AppCompatActivity {
         dbHelper.insertQuestion("test17 question text","test17 correct answer", "test17 alt answer 1", "test17 alt answer 2", "test17 alt answer 3",3);
         dbHelper.insertQuestion("test18 question text","test18 correct answer", "test18 alt answer 1", "test18 alt answer 2", "test18 alt answer 3",3);
 
+        dbHelper.insertQuestion("really really really really really long question", "the right one", "the first one", "the second one", "the third one", 1);
     }
 
 }

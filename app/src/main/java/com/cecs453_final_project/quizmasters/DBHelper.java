@@ -42,7 +42,6 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String ANSWERS_COLUMN_CHOSENANSWER = "chosenAnswer";
 
 
-
     public DBHelper(Context context) {
         super(context, DATABASE_NAME , null, 1);
     }
@@ -74,6 +73,7 @@ public class DBHelper extends SQLiteOpenHelper {
                         "(answerID integer primary key, quizID integer, questionID integer ,chosenAnswer text)"
         );
     }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         // TODO Auto-generated method stub
@@ -100,8 +100,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
-
-
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // TODO Auto-generated method stub
@@ -111,8 +109,6 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS answers");
         onCreate(db);
     }
-
-
 
     public boolean insertAccount (String userName, String password, String type) {
         SQLiteDatabase db = this.getWritableDatabase();
@@ -153,8 +149,6 @@ public class DBHelper extends SQLiteOpenHelper {
         return (int) db.insert("answers", null, contentValues);
     }
 
-
-
     public Integer deleteAccount (Integer id) {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete("accounts",
@@ -162,27 +156,26 @@ public class DBHelper extends SQLiteOpenHelper {
                 new String[] { Integer.toString(id) });
     }
 
-    public Integer deleteQuestion (Integer id) {
+    public Integer deleteQuestion (Integer question_id) {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete("questions",
                 "questionID = ? ",
-                new String[] { Integer.toString(id) });
+                new String[] { Integer.toString(question_id) });
     }
 
-    public Integer deleteTakenQuiz (Integer id) {
+    public Integer deleteTakenQuiz (Integer quiz_id) {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete("takenQuizzes",
                 "takenQuizID = ? ",
-                new String[] { Integer.toString(id) });
+                new String[] { Integer.toString(quiz_id) });
     }
 
-    public Integer deleteAnswer (Integer id) {
+    public Integer deleteAnswer (Integer answer_id) {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.delete("answer",
                 "answerID = ? ",
-                new String[] { Integer.toString(id) });
+                new String[] { Integer.toString(answer_id) });
     }
-
 
     /*
      *  Gets the correct answer of a particular question from the database
@@ -214,7 +207,6 @@ public class DBHelper extends SQLiteOpenHelper {
         }
         return array_list.get(0).getCorrectAnswer();
     }
-
 
     /*
      *  Gets all question from the database
@@ -278,7 +270,6 @@ public class DBHelper extends SQLiteOpenHelper {
         return array_list.get(0);
     }
 
-
     /*
      *  Gets 5 random question from the database that are of the specified difficulty
      *  input: int difficulty 1, 2, or 3
@@ -339,7 +330,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
         return array_list;
     }
-
 
     /*
      *  Gets an Answer object from the database by its ID
@@ -403,7 +393,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
-
     /*
      *  Gets the Account object from the database that matches the entered credentials
      *  input: String username, String password
@@ -437,7 +426,6 @@ public class DBHelper extends SQLiteOpenHelper {
 
     }
 
-
     /*
      *  Changes the password of an account in the database
      *  input: String username, String new password
@@ -450,8 +438,6 @@ public class DBHelper extends SQLiteOpenHelper {
         db.update("accounts", contentValues, "username = ? ", new String[] { un } );
         return true;
     }
-
-
 
     /*
      *  Updates the info of a Question in the database
@@ -470,7 +456,6 @@ public class DBHelper extends SQLiteOpenHelper {
         db.update("questions", contentValues, "questionID = ? ", new String[] { Integer.toString(id) } );
         return true;
     }
-
 
 
 }

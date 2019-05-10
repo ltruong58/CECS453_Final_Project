@@ -21,6 +21,7 @@ public class AdminMainActivity extends AppCompatActivity {
                 Intent addQuestionActivity = new Intent(
                         AdminMainActivity.this, AddQuestionActivity.class);
                 AdminMainActivity.this.startActivity(addQuestionActivity);
+                finish();
             }
         });
 
@@ -33,6 +34,12 @@ public class AdminMainActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(AdminMainActivity.this, LoginActivity.class));
+        finish();
     }
 }
 

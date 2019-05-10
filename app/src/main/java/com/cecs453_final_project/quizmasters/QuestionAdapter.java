@@ -18,6 +18,7 @@ import java.util.List;
 public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHolder> {
 
     private final List<Question> mQuestions;
+    private int max_length;
 
     public QuestionAdapter() {
         mQuestions = new ArrayList<>();
@@ -27,13 +28,18 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
     public QuestionAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.fragment_question, parent, false);
+        max_length = parent.getContext().getResources().getInteger(R.integer.max_length);
+
         return new QuestionAdapter.ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(final QuestionAdapter.ViewHolder holder, final int position) {
         holder.mItem = mQuestions.get(position);
-        holder.question.setText(mQuestions.get(position).getQuestionText());
+        String str = modifyString(holder.mView, mQuestions.get(position).getQuestionText());
+        System.out.println("returned: " + str);
+        holder.question.setText(str);
+        System.out.println("textview: " + holder.question.getText());
         holder.btDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -54,6 +60,13 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
             }
         });
 
+    }
+
+    private String modifyString(View v, String originalString) {
+        System.out.println("max length: " + max_length);
+        if (originalString.length() > max_length){
+            return v.getContext().getString(R.string.too_long_text, originalString.substring(0, max_length));
+        } else return originalString;
     }
 
     public void addItem(Question question) {
