@@ -37,9 +37,9 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
     public void onBindViewHolder(final QuestionAdapter.ViewHolder holder, final int position) {
         holder.mItem = mQuestions.get(position);
         String str = modifyString(holder.mView, mQuestions.get(position).getQuestionText());
-        System.out.println("returned: " + str);
+//        System.out.println("returned: " + str);
         holder.question.setText(str);
-        System.out.println("textview: " + holder.question.getText());
+//        System.out.println("textview: " + holder.question.getText());
         holder.btDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,13 +57,14 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
                 Intent intent = new Intent(view.getContext(), QuestionDetailsActivity.class);
                 intent.putExtra("id", holder.mItem.getQuestionID());
                 view.getContext().startActivity(intent);
+
             }
         });
 
     }
 
     private String modifyString(View v, String originalString) {
-        System.out.println("max length: " + max_length);
+//        System.out.println("max length: " + max_length);
         if (originalString.length() > max_length){
             return v.getContext().getString(R.string.too_long_text, originalString.substring(0, max_length));
         } else return originalString;

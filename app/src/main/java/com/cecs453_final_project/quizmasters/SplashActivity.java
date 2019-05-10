@@ -18,7 +18,7 @@ public class SplashActivity extends AppCompatActivity {
 
         dbHelper = new DBHelper(this);
         dbHelper.resetDB();
-        initExQuestionsToDB();
+        initExQuestionsToDB(); //Sets up the database each time the app starts with example questions.
 
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -27,10 +27,10 @@ public class SplashActivity extends AppCompatActivity {
                 startActivity(splashIntent);
                 finish();
             }
-        }, SPLASH_TIME_OUT);
+        }, SPLASH_TIME_OUT); // Goes instantly to LoginActivity after 2 seconds.
     }
 
-    void initExQuestionsToDB() {
+    void initExQuestionsToDB() { //Set up example questions, 6 examples for every level of difficulty.
         dbHelper.insertQuestion("test1 question text","test1 correct answer", "test1 alt answer 1", "test1 alt answer 2", "test1 alt answer 3",1);
         dbHelper.insertQuestion("test2 question text","test2 correct answer", "test2 alt answer 1", "test2 alt answer 2", "test2 alt answer 3",1);
         dbHelper.insertQuestion("test3 question text","test3 correct answer", "test3 alt answer 1", "test3 alt answer 2", "test3 alt answer 3",1);
