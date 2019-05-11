@@ -25,7 +25,7 @@ public class RegisterActivity extends AppCompatActivity {
         final EditText etEmail = (EditText) findViewById(R.id.etEmail);
         final Button btSave = (Button) findViewById(R.id.btSave);
         final Button btCancel = (Button) findViewById(R.id.btCancel);
-        final DBHelper dbHelper = new DBHelper(this);
+        final DBHelper dbHelper = new DBHelper(this); //Sets up android widgets and links them with the code
 
         btSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,7 +40,7 @@ public class RegisterActivity extends AppCompatActivity {
                 email = etEmail.getText().toString();
                 age = etAge.getText().toString();
                 int iAge = Integer.parseInt(age);
-                // Check all fields
+                // Read all inputs
 
 
 

@@ -31,24 +31,24 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     void initExQuestionsToDB() { //Set up example questions, 6 examples for every level of difficulty.
-        dbHelper.insertQuestion("test1 question text","test1 correct answer", "test1 alt answer 1", "test1 alt answer 2", "test1 alt answer 3",1);
-        dbHelper.insertQuestion("test2 question text","test2 correct answer", "test2 alt answer 1", "test2 alt answer 2", "test2 alt answer 3",1);
-        dbHelper.insertQuestion("test3 question text","test3 correct answer", "test3 alt answer 1", "test3 alt answer 2", "test3 alt answer 3",1);
-        dbHelper.insertQuestion("test4 question text","test4 correct answer", "test4 alt answer 1", "test4 alt answer 2", "test4 alt answer 3",1);
-        dbHelper.insertQuestion("test5 question text","test5 correct answer", "test5 alt answer 1", "test5 alt answer 2", "test5 alt answer 3",1);
-        dbHelper.insertQuestion("test6 question text","test6 correct answer", "test6 alt answer 1", "test6 alt answer 2", "test6 alt answer 3",1);
-        dbHelper.insertQuestion("test7 question text","test7 correct answer", "test7 alt answer 1", "test7 alt answer 2", "test7 alt answer 3",2);
-        dbHelper.insertQuestion("test8 question text","test8 correct answer", "test8 alt answer 1", "test8 alt answer 2", "test8 alt answer 3",2);
-        dbHelper.insertQuestion("test9 question text","test9 correct answer", "test9 alt answer 1", "test9 alt answer 2", "test9 alt answer 3",2);
-        dbHelper.insertQuestion("test10 question text","test10 correct answer", "test10 alt answer 1", "test5 alt answer 2", "test10 alt answer 3",2);
-        dbHelper.insertQuestion("test11 question text","test11 correct answer", "test11 alt answer 1", "test11 alt answer 2", "test11 alt answer 3",2);
-        dbHelper.insertQuestion("test12 question text","test12 correct answer", "test12 alt answer 1", "test12 alt answer 2", "test12 alt answer 3",2);
-        dbHelper.insertQuestion("test13 question text","test13 correct answer", "test13 alt answer 1", "test13 alt answer 2", "test13 alt answer 3",3);
-        dbHelper.insertQuestion("test14 question text","test14 correct answer", "test14 alt answer 1", "test14 alt answer 2", "test14 alt answer 3",3);
-        dbHelper.insertQuestion("test15 question text","test15 correct answer", "test15 alt answer 1", "test15 alt answer 2", "test15 alt answer 3",3);
-        dbHelper.insertQuestion("test16 question text","test16 correct answer", "test16 alt answer 1", "test16 alt answer 2", "test16 alt answer 3",3);
-        dbHelper.insertQuestion("test17 question text","test17 correct answer", "test17 alt answer 1", "test17 alt answer 2", "test17 alt answer 3",3);
-        dbHelper.insertQuestion("test18 question text","test18 correct answer", "test18 alt answer 1", "test18 alt answer 2", "test18 alt answer 3",3);
+        dbHelper.insertQuestion("Which fictional city is the home of Batman?","Gotham City", "New York City", "The Capitol", "Emerald City",1);
+        dbHelper.insertQuestion("What's the total number of dots on a pair of dice?","42", "48", "40", "35",1);
+        dbHelper.insertQuestion("Traditionally, how many Wonders of the World are there?","Seven", "Five", "Ten", "Thirteen",1);
+        dbHelper.insertQuestion("Which of these celestial bodies is NOT considered a planet?","Pluto", "Mars", "Jupiter", "Venus",1);
+        dbHelper.insertQuestion("According to the old proverb, to which European capital city do all roads lead?","Rome", "Venice", "Milan", "Florence",1);
+        dbHelper.insertQuestion("What color is the circle of the japanese flag?","Red", "Blue", "Green", "Yellow",1);
+        dbHelper.insertQuestion("What is the capital of France?","Paris", "Nice", "Lyon", "Bordeaux",2);
+        dbHelper.insertQuestion("What is the chemical name for salt?","Sodium chloride (NaCl)", "Sulphuric acid (H2SO4)", "Sodium hydroxide (NaOH)", "Hydrochloric acid (HCl)",2);
+        dbHelper.insertQuestion("What sign of the zodiac is represented by the ram?","Aries", "Scorpio", "Libra", "Sagittarius",2);
+        dbHelper.insertQuestion("Which Roman emperor supposedly fiddled while Rome burned?","Nero", "Titus", "Caligulas", "Augustus",2);
+        dbHelper.insertQuestion("Spinach is high in which nutrient?","Iron", "Sodium", "Calcium", "Omega - 3",2);
+        dbHelper.insertQuestion("What is a Geiger Counter used to detect?","Radiation", "Salinity", "Alcohol levels in blood", "Air contamination",2);
+        dbHelper.insertQuestion("Who was known as the Maid of Orleans?","Joan Of Arc", "Queen Elizabeth I", "Queen Elizabeth II", "Catherine The Great",3);
+        dbHelper.insertQuestion("Babe Ruth is associated with which sport?","Baseball", "Soccer", "Tennis", "Curling",3);
+        dbHelper.insertQuestion("In which sport would you perform the Fosbury Flop?","High Jump", "Diving", "Snowboarding", "Ski-jumps",3);
+        dbHelper.insertQuestion("What is the only U.S. state that borders one other?","Maine", "Rhode Island", "Washington", "Florida",3);
+        dbHelper.insertQuestion("Ganymede is the largest moon in the solar system. To which planet does it belong to?","Jupiter", "Mars", "Neptune", "Mercury",3);
+        dbHelper.insertQuestion("By which name is the actor and singer Gordon Matthew Thomas Summer known for?","Sting", "Prince", "Bono", "Father John Misty",3);
 
         dbHelper.insertQuestion("really really really really really long question", "the right one", "the first one", "the second one", "the third one", 1);
     }
