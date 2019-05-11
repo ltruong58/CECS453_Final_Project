@@ -26,15 +26,17 @@ public class QuestionDetailsActivity extends AppCompatActivity {
         final TextView tvAltAns1 = (TextView) findViewById(R.id.tvAltAns1);
         final TextView tvAltAns2 = (TextView) findViewById(R.id.tvAltAns2);
         final TextView tvAltAns3 = (TextView) findViewById(R.id.tvAltAns3);
+        final TextView tvDiffText = (TextView) findViewById(R.id.tvDiffText);
 
         final Button btBack = (Button) findViewById(R.id.btBack);
         final Button btEdit = (Button) findViewById(R.id.btEdit);
 
         tvQuesText.setText(ques.getQuestionText());
+        tvCorAns.setText(getString(R.string.correct_string, ques.getCorrectAnswer()));
         tvAltAns1.setText(ques.getAltAnswer1());
         tvAltAns2.setText(ques.getAltAnswer2());
         tvAltAns3.setText(ques.getAltAnswer3());
-        tvCorAns.setText(ques.getCorrectAnswer());
+        tvDiffText.setText(getString(R.string.difficulty_string, ques.getDifficulty()));
 
         btBack.setOnClickListener(new View.OnClickListener() {
             @Override

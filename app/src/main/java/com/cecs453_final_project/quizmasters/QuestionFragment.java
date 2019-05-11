@@ -36,11 +36,11 @@ public class QuestionFragment extends Fragment {
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static QuestionFragment newInstance(int columnCount) {
+    public static QuestionFragment newInstance(/*int columnCount*/) {
         QuestionFragment fragment = new QuestionFragment();
-        Bundle args = new Bundle();
-        args.putInt(ARG_COLUMN_COUNT, columnCount);
-        fragment.setArguments(args);
+//        Bundle args = new Bundle();
+//        args.putInt(ARG_COLUMN_COUNT, columnCount);
+//        fragment.setArguments(args);
         return fragment;
     }
 

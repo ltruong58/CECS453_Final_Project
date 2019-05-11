@@ -24,7 +24,7 @@
     <string name="etAlternateAns3">Type your 3rd alternate answer here</string>
     <string name="btCreateQuestion">Create</string>
     <string name="btCancel"> Cancel</string>
-    <string name="tvDifficulty">Difficulty</string>
+    <string name="tvDifficulty">Difficulty:</string>
 
     <!-- Strings related to login -->
     <string name="sign_in">LOGIN</string>
@@ -79,5 +79,8 @@
 
     <string name="edit">Edit</string>
     <string name="question_details">Question Details</string>
-    <integer name="max_length">42</integer>
+    <string name="difficulty_string">Difficulty: %d</string>
+    <string name="correct_string">%s  [[Correct Answer]]</string>
+
+    <integer name="max_max_length">39</integer>
 </resources>

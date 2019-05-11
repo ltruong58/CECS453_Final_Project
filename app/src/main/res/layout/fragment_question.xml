@@ -20,7 +20,7 @@
         android:layout_weight="4"
         android:ellipsize="end"
         android:gravity="center_vertical"
-        android:maxLength="45"
+        android:maxLength="@integer/max_max_length"
         android:text="@string/example"
         android:textAppearance="?attr/textAppearanceListItem"
         android:textColor="@color/button_text_color"

@@ -1,5 +1,6 @@
 package com.cecs453_final_project.quizmasters;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -28,7 +29,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
     public QuestionAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.fragment_question, parent, false);
-        max_length = parent.getContext().getResources().getInteger(R.integer.max_length);
+        max_length = parent.getContext().getResources().getInteger(R.integer.max_max_length) - 3;
 
         return new QuestionAdapter.ViewHolder(view);
     }
@@ -36,10 +37,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
     @Override
     public void onBindViewHolder(final QuestionAdapter.ViewHolder holder, final int position) {
         holder.mItem = mQuestions.get(position);
-        String str = modifyString(holder.mView, mQuestions.get(position).getQuestionText());
-//        System.out.println("returned: " + str);
-        holder.question.setText(str);
-//        System.out.println("textview: " + holder.question.getText());
+        holder.question.setText(modifyString(holder.mView, mQuestions.get(position).getQuestionText()));
         holder.btDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,7 +55,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
                 Intent intent = new Intent(view.getContext(), QuestionDetailsActivity.class);
                 intent.putExtra("id", holder.mItem.getQuestionID());
                 view.getContext().startActivity(intent);
-
+                ((Activity) view.getContext()).finish();
             }
         });
 
