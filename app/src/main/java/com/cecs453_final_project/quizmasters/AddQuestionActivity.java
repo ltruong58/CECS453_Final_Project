@@ -25,10 +25,11 @@ public class AddQuestionActivity extends AppCompatActivity {
         final RadioGroup rgDifficulty = (RadioGroup) findViewById(R.id.rgDificulty);
         final Button btCreateQuestion = (Button) findViewById(R.id.btCreateQuestion);
 
+        // edit(= 1) is passed from QuestionDetailsActivity to know that it is for edit an existing question, not to create a new one. default: 0
         edit = getIntent().getIntExtra("edit", 0);
         dbHelper = new DBHelper(AddQuestionActivity.this);
 
-        if(edit != 0) {
+        if(edit != 0) { // Load the existing question
             ques = (Question) getIntent().getSerializableExtra("extra");
             etQuestionText.setText(ques.getQuestionText());
             etCorrectAns.setText(ques.getCorrectAnswer());
@@ -42,8 +43,11 @@ public class AddQuestionActivity extends AppCompatActivity {
                 default: break;
             }
 
+            // Change the button text from CREATE to EDIT
             btCreateQuestion.setText(R.string.edit);
         }
+
+        // Use for both creating new or updating existing question
         btCreateQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -66,11 +70,11 @@ public class AddQuestionActivity extends AppCompatActivity {
 
                 if(edit == 0) { // Add new question
                     dbHelper.insertQuestion(question, corAns, alt1Ans, alt2Ans, alt3Ans, lvl);
-                } else {
-                    // call dbHelper updateQues
+                } else { // edit question
                     dbHelper.updateQuestion(ques.getQuestionID(), question, corAns, alt1Ans, alt2Ans, alt3Ans, lvl);
                 }
 
+                // Go back to AdminMainActivity after question is created or updated
                 Intent intent = new Intent(AddQuestionActivity.this, AdminMainActivity.class);
                 startActivity(intent);
                 finish();

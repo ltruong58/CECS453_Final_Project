@@ -38,9 +38,6 @@ public class QuestionFragment extends Fragment {
     @SuppressWarnings("unused")
     public static QuestionFragment newInstance(/*int columnCount*/) {
         QuestionFragment fragment = new QuestionFragment();
-//        Bundle args = new Bundle();
-//        args.putInt(ARG_COLUMN_COUNT, columnCount);
-//        fragment.setArguments(args);
         return fragment;
     }
 

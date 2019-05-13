@@ -90,6 +90,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         });
+
         btAdminLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

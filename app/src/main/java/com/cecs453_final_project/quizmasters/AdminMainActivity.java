@@ -14,6 +14,7 @@ public class AdminMainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_main);
 
+        // Set up Add new Question button
         final Button btAddQuestion = (Button) findViewById(R.id.btAddNewQuestion) ;
         btAddQuestion.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -25,6 +26,7 @@ public class AdminMainActivity extends AppCompatActivity {
             }
         });
 
+        // Set up Go Back button
         final Button btGoBack = (Button) findViewById(R.id.back_to_login_btn);
         btGoBack.setOnClickListener(new View.OnClickListener() {
             @Override

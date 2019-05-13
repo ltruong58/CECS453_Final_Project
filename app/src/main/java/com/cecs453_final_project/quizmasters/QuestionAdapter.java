@@ -38,21 +38,25 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
     public void onBindViewHolder(final QuestionAdapter.ViewHolder holder, final int position) {
         holder.mItem = mQuestions.get(position);
         holder.question.setText(modifyString(holder.mView, mQuestions.get(position).getQuestionText()));
+
+        // Delete question
         holder.btDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Delete question
                 DBHelper dbHelper = new DBHelper(v.getContext());
-                 dbHelper.deleteQuestion(holder.mItem.getQuestionID());
-                 mQuestions.remove(position);
+                dbHelper.deleteQuestion(holder.mItem.getQuestionID());
+                mQuestions.remove(position);
                 notifyDataSetChanged();
             }
         });
 
+        // Click on Textview to view details
         holder.question.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), QuestionDetailsActivity.class);
+
+                //send question id to QuestionDetailsActivity
                 intent.putExtra("id", holder.mItem.getQuestionID());
                 view.getContext().startActivity(intent);
                 ((Activity) view.getContext()).finish();
@@ -61,6 +65,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
 
     }
 
+    // Use for long question text
     private String modifyString(View v, String originalString) {
 //        System.out.println("max length: " + max_length);
         if (originalString.length() > max_length){
